@@ -9,7 +9,15 @@ You will implement the functions in recommender.py:
 - recommend_songs
 """
 
+import os
+
 from .recommender import load_songs, recommend_songs
+
+# Prefer the live Spotify-backed catalog when it's been built (see
+# src/catalog_builder.py); fall back to the static CSV so this still runs
+# for anyone without Spotify credentials.
+SPOTIFY_CATALOG = "data/songs_spotify.csv"
+STATIC_CATALOG = "data/songs.csv"
 
 # Starter example profile
 STARTER_PROFILE = ("pop/happy", {"genre": "pop", "mood": "happy", "energy": 0.8})
@@ -37,7 +45,8 @@ def print_recommendations(label: str, user_prefs: dict, songs: list) -> None:
 
 
 def main() -> None:
-    songs = load_songs("data/songs.csv")
+    catalog_path = SPOTIFY_CATALOG if os.path.exists(SPOTIFY_CATALOG) else STATIC_CATALOG
+    songs = load_songs(catalog_path)
 
     print_recommendations(*STARTER_PROFILE, songs)
     for label, user_prefs in EDGE_CASE_PROFILES:
