@@ -10,7 +10,7 @@ import json
 import os
 import time
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 import requests
 from dotenv import load_dotenv
@@ -72,23 +72,34 @@ class SpotifyClient:
         if cache_key in self._cache:
             return self._cache[cache_key]
 
-        resp = requests.get(
-            url,
-            headers={"Authorization": f"Bearer {self._get_token()}"},
-            params=params,
-            timeout=10,
-        )
+        for _ in range(3):
+            resp = requests.get(
+                url,
+                headers={"Authorization": f"Bearer {self._get_token()}"},
+                params=params,
+                timeout=10,
+            )
+            if resp.status_code == 429:
+                time.sleep(int(resp.headers.get("Retry-After", "1")))
+                continue
+            resp.raise_for_status()
+            data = resp.json()
+            self._cache[cache_key] = data
+            self._save_cache()
+            return data
+
         resp.raise_for_status()
-        data = resp.json()
-        self._cache[cache_key] = data
-        self._save_cache()
-        return data
+        return {}
+
+    def search_tracks(self, query: str, limit: int = 1) -> List[dict]:
+        """Return up to `limit` track results for a free-text search query."""
+        cache_key = f"search:{query}:limit{limit}"
+        data = self._cached_get(cache_key, f"{API_BASE}/search", {"q": query, "type": "track", "limit": limit})
+        return data.get("tracks", {}).get("items", [])
 
     def search_track(self, query: str) -> Optional[dict]:
         """Return the top track result for a free-text search query, or None."""
-        cache_key = f"search:{query}"
-        data = self._cached_get(cache_key, f"{API_BASE}/search", {"q": query, "type": "track", "limit": 1})
-        items = data.get("tracks", {}).get("items", [])
+        items = self.search_tracks(query, limit=1)
         return items[0] if items else None
 
     def get_audio_features(self, track_id: str) -> dict:

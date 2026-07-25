@@ -9,15 +9,21 @@ You will implement the functions in recommender.py:
 - recommend_songs
 """
 
+import argparse
 import os
 
 from .recommender import load_songs, recommend_songs
+from .vibe_recommender import VibeRecommender, load_vibe_catalog
 
 # Prefer the live Spotify-backed catalog when it's been built (see
 # src/catalog_builder.py); fall back to the static CSV so this still runs
 # for anyone without Spotify credentials.
 SPOTIFY_CATALOG = "data/songs_spotify.csv"
 STATIC_CATALOG = "data/songs.csv"
+
+# The vibe/RAG query draws from a separate, larger text-only catalog (no
+# audio-features needed) — see src/catalog_builder.py:build_vibe_catalog.
+VIBE_CATALOG = "data/songs_vibe.csv"
 
 # Starter example profile
 STARTER_PROFILE = ("pop/happy", {"genre": "pop", "mood": "happy", "energy": 0.8})
@@ -44,13 +50,37 @@ def print_recommendations(label: str, user_prefs: dict, songs: list) -> None:
         print()
 
 
+def print_vibe_recommendations(query: str, songs: list) -> None:
+    """Print the top 5 songs ranked by semantic similarity to a free-text query."""
+    recommender = VibeRecommender(songs)
+    results = recommender.recommend(query, k=5)
+    print(f'\n=== Vibe query: "{query}" ===\n')
+    for rank, (song, score) in enumerate(results, start=1):
+        print(f"{rank}. {song['title']} by {song['artist']} - Similarity: {score:.2f}")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Music Recommender Simulation")
+    parser.add_argument(
+        "--vibe",
+        metavar="WORDS",
+        help='Free-text vibe query, e.g. --vibe "rainy day coding music"',
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
+    args = parse_args()
     catalog_path = SPOTIFY_CATALOG if os.path.exists(SPOTIFY_CATALOG) else STATIC_CATALOG
     songs = load_songs(catalog_path)
 
     print_recommendations(*STARTER_PROFILE, songs)
     for label, user_prefs in EDGE_CASE_PROFILES:
         print_recommendations(label, user_prefs, songs)
+
+    if args.vibe:
+        vibe_songs = load_vibe_catalog(VIBE_CATALOG) if os.path.exists(VIBE_CATALOG) else songs
+        print_vibe_recommendations(args.vibe, vibe_songs)
 
 
 if __name__ == "__main__":
