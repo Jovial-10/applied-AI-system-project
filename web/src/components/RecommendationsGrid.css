@@ -1,0 +1,33 @@
+.sym-results {
+  width: 100%;
+  max-width: 1080px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sym-results__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.sym-results__title {
+  font-size: 26px;
+}
+
+.sym-results__subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.sym-results__query {
+  color: var(--pink-bright);
+}
+
+.sym-results__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 22px;
+}

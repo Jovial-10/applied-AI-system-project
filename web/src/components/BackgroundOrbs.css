@@ -1,0 +1,87 @@
+.sym-orbs {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sym-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  will-change: transform;
+}
+
+.sym-orb--pink {
+  width: 46vw;
+  height: 46vw;
+  max-width: 620px;
+  max-height: 620px;
+  left: -12vw;
+  top: -14vw;
+  background: radial-gradient(circle, rgba(255, 111, 174, 0.45) 0%, rgba(255, 111, 174, 0) 66%);
+  animation: sym-drift-1 28s ease-in-out infinite;
+}
+
+.sym-orb--purple {
+  width: 40vw;
+  height: 40vw;
+  max-width: 540px;
+  max-height: 540px;
+  right: -10vw;
+  top: 8vw;
+  background: radial-gradient(circle, rgba(123, 92, 255, 0.38) 0%, rgba(123, 92, 255, 0) 66%);
+  animation: sym-drift-2 34s ease-in-out infinite;
+}
+
+.sym-orb--teal {
+  width: 34vw;
+  height: 34vw;
+  max-width: 460px;
+  max-height: 460px;
+  left: 38%;
+  bottom: -16vw;
+  background: radial-gradient(circle, rgba(53, 208, 192, 0.3) 0%, rgba(53, 208, 192, 0) 66%);
+  animation: sym-drift-3 38s ease-in-out infinite;
+}
+
+.sym-orbs--paused .sym-orb {
+  animation-play-state: paused;
+}
+
+@keyframes sym-drift-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(4vw, -3vw) scale(1.12);
+  }
+}
+
+@keyframes sym-drift-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-3.5vw, 3.5vw) scale(1.08);
+  }
+}
+
+@keyframes sym-drift-3 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(2.5vw, 4vw) scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sym-orb {
+    animation: none !important;
+  }
+}
