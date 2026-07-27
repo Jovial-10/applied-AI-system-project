@@ -91,10 +91,15 @@ class SpotifyClient:
         resp.raise_for_status()
         return {}
 
-    def search_tracks(self, query: str, limit: int = 1) -> List[dict]:
-        """Return up to `limit` track results for a free-text search query."""
-        cache_key = f"search:{query}:limit{limit}"
-        data = self._cached_get(cache_key, f"{API_BASE}/search", {"q": query, "type": "track", "limit": limit})
+    def search_tracks(self, query: str, limit: int = 1, offset: int = 0) -> List[dict]:
+        """Return up to `limit` track results for a free-text search query,
+        starting at `offset` (for paging past the first page of results)."""
+        cache_key = f"search:{query}:limit{limit}:offset{offset}"
+        data = self._cached_get(
+            cache_key,
+            f"{API_BASE}/search",
+            {"q": query, "type": "track", "limit": limit, "offset": offset},
+        )
         return data.get("tracks", {}).get("items", [])
 
     def search_track(self, query: str) -> Optional[dict]:
@@ -104,6 +109,3 @@ class SpotifyClient:
 
     def get_audio_features(self, track_id: str) -> dict:
         return self._cached_get(f"audio_features:{track_id}", f"{API_BASE}/audio-features/{track_id}")
-
-    def get_artist(self, artist_id: str) -> dict:
-        return self._cached_get(f"artist:{artist_id}", f"{API_BASE}/artists/{artist_id}")

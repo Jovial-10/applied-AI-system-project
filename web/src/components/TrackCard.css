@@ -23,7 +23,15 @@
   position: relative;
   aspect-ratio: 1 / 1;
   border-radius: 14px;
+  overflow: hidden;
   box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+.sym-card__art-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .sym-card__info {
@@ -64,6 +72,12 @@
   border-radius: 50%;
   background: var(--teal);
   flex-shrink: 0;
+}
+
+.sym-card__reason {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-secondary);
 }
 
 @keyframes sym-rise-in {

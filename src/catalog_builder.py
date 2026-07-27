@@ -57,6 +57,29 @@ GENRE_SEED_GROUPS = {
     "latin": ["latin", "reggaeton", "latin pop"],
     "classical": ["classical", "orchestral", "piano"],
     "punk": ["punk", "pop punk", "punk rock"],
+    # Added to broaden genre variety for the vibe/RAG catalog (build_vibe_catalog
+    # isn't audio-features-blocked, so it can absorb many more buckets than the
+    # small songs_spotify.csv catalog above).
+    "reggae": ["reggae", "dub", "roots reggae"],
+    "blues": ["blues", "chicago blues", "delta blues"],
+    "gospel": ["gospel", "christian gospel", "contemporary gospel"],
+    "k-pop": ["k-pop", "korean pop", "k-pop girl group"],
+    "afrobeats": ["afrobeats", "afropop", "afro fusion"],
+    "disco": ["disco", "nu-disco", "disco funk"],
+    "funk": ["funk", "p-funk", "funk rock"],
+    "trance": ["trance", "progressive trance", "uplifting trance"],
+    "drum and bass": ["drum and bass", "jungle", "liquid dnb"],
+    "dubstep": ["dubstep", "riddim", "brostep"],
+    "post-punk": ["post-punk", "gothic rock", "cold wave"],
+    "shoegaze": ["shoegaze", "dream pop", "noise pop"],
+    "grunge": ["grunge", "post-grunge", "90s alt rock"],
+    "bluegrass": ["bluegrass", "newgrass", "old-time"],
+    "flamenco": ["flamenco", "spanish guitar", "rumba flamenca"],
+    "opera": ["opera", "operatic pop", "classical vocal"],
+    "world": ["world music", "afrobeat world", "ethnic fusion"],
+    "trip-hop": ["trip-hop", "downtempo trip hop", "chillstep"],
+    "emo": ["emo", "emo pop", "midwest emo"],
+    "bossa nova": ["bossa nova", "brazilian jazz", "samba jazz"],
 }
 
 OUTPUT_PATH = Path("data/songs_spotify.csv")
@@ -68,10 +91,35 @@ CSV_COLUMNS = [
 # The vibe (RAG) catalog is text-only — title/artist/genre — so it only needs
 # Search, which isn't rate-blocked the way audio-features turned out to be.
 # It can scale independently of the small audio-features catalog above.
-VIBE_TRACKS_PER_QUERY = 5
-VIBE_MAX_SONGS_PER_GENRE = 8
+#
+# This app's search endpoint 400s on limit > 10 (an undocumented restriction,
+# same flavor as the audio-features block above — confirmed empirically, not
+# in Spotify's docs, which advertise a max of 50). So VIBE_TRACKS_PER_QUERY
+# stays at the real ceiling and we page with `offset` instead to go deeper
+# per seed. 37 genre buckets x up to 40 songs each gives headroom well past
+# 1000 songs; actual yield is lower since niche seeds (e.g. "flamenco") don't
+# all have 40 distinct results to page through.
+VIBE_TRACKS_PER_QUERY = 10
+VIBE_MAX_PAGES_PER_SEED = 8
+VIBE_MAX_SONGS_PER_GENRE = 40
 VIBE_OUTPUT_PATH = Path("data/songs_vibe.csv")
-VIBE_CSV_COLUMNS = ["id", "title", "artist", "genre"]
+VIBE_CSV_COLUMNS = ["id", "title", "artist", "genre", "image_url"]
+
+# Spotify's search response lists each album's cover art largest-first
+# (typically 640/300/64px). 300px is plenty for a card thumbnail and lighter
+# to ship than the 640px original.
+ALBUM_IMAGE_SIZE_PREFERENCE = [300, 640, 64]
+
+
+def _album_image_url(track: dict) -> str:
+    images = track.get("album", {}).get("images", [])
+    if not images:
+        return ""
+    by_width = {img["width"]: img["url"] for img in images}
+    for width in ALBUM_IMAGE_SIZE_PREFERENCE:
+        if width in by_width:
+            return by_width[width]
+    return images[0]["url"]
 
 
 def derive_mood(energy: float, valence: float) -> str:
@@ -141,20 +189,30 @@ def build_vibe_catalog() -> List[dict]:
         for seed in seeds:
             if genre_count >= VIBE_MAX_SONGS_PER_GENRE:
                 break
-            tracks = client.search_tracks(f'genre:"{seed}"', limit=VIBE_TRACKS_PER_QUERY)
-            for track in tracks:
+            for page in range(VIBE_MAX_PAGES_PER_SEED):
                 if genre_count >= VIBE_MAX_SONGS_PER_GENRE:
                     break
-                if track["id"] in seen_track_ids:
-                    continue
-                seen_track_ids.add(track["id"])
-                rows.append({
-                    "id": len(rows) + 1,
-                    "title": track["name"],
-                    "artist": track["artists"][0]["name"],
-                    "genre": genre,
-                })
-                genre_count += 1
+                tracks = client.search_tracks(
+                    f'genre:"{seed}"', limit=VIBE_TRACKS_PER_QUERY, offset=page * VIBE_TRACKS_PER_QUERY
+                )
+                if not tracks:
+                    break  # this seed's results are exhausted; move to the next seed
+                for track in tracks:
+                    if genre_count >= VIBE_MAX_SONGS_PER_GENRE:
+                        break
+                    if track["id"] in seen_track_ids:
+                        continue
+                    seen_track_ids.add(track["id"])
+                    rows.append({
+                        "id": len(rows) + 1,
+                        "title": track["name"],
+                        "artist": track["artists"][0]["name"],
+                        "genre": genre,
+                        "image_url": _album_image_url(track),
+                    })
+                    genre_count += 1
+                if len(tracks) < VIBE_TRACKS_PER_QUERY:
+                    break  # short page means no more results past this point
 
     return rows
 

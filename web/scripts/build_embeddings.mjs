@@ -72,6 +72,7 @@ async function main() {
       title: song.title,
       artist: song.artist,
       genre: song.genre,
+      image: song.image_url || null,
       vector: Array.from(output.data),
     });
     process.stdout.write(`\rEmbedded ${results.length}/${songs.length}`);
