@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { parse } from "node:path";
 import { pipeline } from "@xenova/transformers";
+import { GENRE_VIBE } from "../src/lib/explain.js";
 
 const CSV_PATH = new URL("../../data/songs_vibe.csv", import.meta.url);
 const OUTPUT_PATH = new URL("../src/data/songVectors.json", import.meta.url);
@@ -53,7 +54,11 @@ function parseCsv(text) {
 }
 
 function songToText(song) {
-  return `${song.title} by ${song.artist}: a ${song.genre} song`;
+  const descriptor = GENRE_VIBE[song.genre];
+  const genrePart = descriptor
+    ? `${song.genre} song with ${descriptor.feature}, a ${descriptor.vibe} vibe`
+    : `${song.genre} song`;
+  return `${song.title} by ${song.artist}: a ${genrePart}.`;
 }
 
 async function main() {

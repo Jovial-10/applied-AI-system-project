@@ -204,7 +204,7 @@ Examples:
 - It does not understand lyrics or language
 - It might over favor one genre or mood
 
-You will go deeper on this in your model card.
+Sometimes the "vibe" described by the user will have exact words matched in the songs and the recommender would recommend you songs because it matched the title of the song, not because of the actual similarity in vibe.
 
 ---
 

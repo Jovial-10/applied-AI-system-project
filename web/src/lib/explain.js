@@ -3,7 +3,13 @@
 // mood/audio-features for these tracks — see src/catalog_builder.py). So the
 // per-song explanation is a hand-written genre -> vibe descriptor, not
 // something derived from the model itself.
-const GENRE_VIBE = {
+//
+// Also imported by scripts/build_embeddings.mjs to enrich the text each song
+// is embedded from — a bare genre noun gives the model too little to weigh
+// against a title that happens to share a literal word with the query (see
+// src/vibe_recommender.py's song_to_text for the same fix on the Python
+// side; keep both dictionaries in sync).
+export const GENRE_VIBE = {
   pop: { feature: "polished hooks and an upbeat, radio-ready energy", vibe: "feel-good" },
   lofi: { feature: "warm tape hiss and a slow, laid-back beat", vibe: "chill" },
   rock: { feature: "driving guitars and raw, live-band energy", vibe: "high-energy" },

@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.vibe_recommender import VibeRecommender, song_to_text
+from src.vibe_recommender import EMBEDDING_MODEL_NAME, VibeRecommender, song_to_text
 
 SONGS = [
     {"id": 1, "title": "Focus Flow", "artist": "LoRoom", "genre": "lofi", "mood": "chill"},
@@ -33,3 +33,37 @@ def test_song_to_text_includes_identifying_fields():
     assert "Focus Flow" in text
     assert "LoRoom" in text
     assert "lofi" in text
+
+
+def test_recommend_resists_literal_title_overlap_over_genre_mismatch():
+    """Regression guard for a real production bug: a song whose title happens
+    to share a literal word with the query (e.g. "High Hopes" for a "high
+    energy workout" search) could out-rank a song whose *genre* is the
+    actually-correct vibe, purely on that coincidental overlap. Uses the real
+    embedding model (no fake vectors) since the bug is about real model
+    behavior on short text, not the ranking logic around it.
+
+    NOTE: enriching the blurb with a genre-vibe descriptor (see song_to_text)
+    fixes this for most literal-overlap cases, including this one — but it's
+    a mitigation, not a guarantee. Verified against the real model that an
+    exact, emotionally loaded word shared between query and title (e.g.
+    "party", "dark") can still occasionally win even after this fix; that
+    residual failure mode isn't covered here. A stricter fix (blending a
+    title-only similarity with a genre-vibe-only similarity, rather than one
+    combined embedding) would close that gap but wasn't the approach chosen.
+    """
+    from sentence_transformers import SentenceTransformer
+
+    model = SentenceTransformer(EMBEDDING_MODEL_NAME)
+    embed_fn = lambda texts: model.encode(texts, normalize_embeddings=True)
+
+    songs = [
+        # Wrong genre for the query, but the title literally contains "High".
+        {"id": 1, "title": "High Hopes", "artist": "Some Artist", "genre": "ambient"},
+        # The actually energetic genre, with no literal word overlap at all.
+        {"id": 2, "title": "Thunderstruck", "artist": "AC/DC", "genre": "rock"},
+    ]
+    recommender = VibeRecommender(songs, embed_fn=embed_fn)
+    results = recommender.recommend("high energy workout", k=2)
+
+    assert results[0][0]["title"] == "Thunderstruck"
