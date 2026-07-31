@@ -16,6 +16,10 @@ import numpy as np
 
 EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 
+# Similarity multiplier for songs whose vibe line is inferred rather than
+# verified. Mirrored in web/src/lib/similarity.js — keep both in sync.
+INFERRED_WEIGHT = 0.9
+
 EmbedFn = Callable[[List[str]], np.ndarray]
 
 # A bare genre noun ("lofi") gives the embedding model almost nothing to work
@@ -70,10 +74,19 @@ GENRE_VIBE = {
 def song_to_text(song: dict) -> str:
     """Build the descriptive blurb a song is embedded from.
 
+    Prefers the hand-written, per-song `vibe` line (the `vibe` column in
+    data/songs_vibe.csv) when present — a far richer semantic signal than the
+    per-genre descriptor, which embedded every song of a genre to nearly the
+    same text. Falls back to the genre descriptor (and optional `mood`) only
+    when a song carries no vibe.
+
     `mood` is optional: the small audio-feature catalog has it (derived from
     energy/valence), but the larger search-only vibe catalog doesn't, since
     deriving mood needs the audio-features call that's largely blocked.
     """
+    vibe_line = (song.get("vibe") or "").strip()
+    if vibe_line:
+        return f"{song['title']} by {song['artist']}: {vibe_line}."
     mood_part = f" a {song['mood']}" if song.get("mood") else " a"
     descriptor = GENRE_VIBE.get(song["genre"])
     if descriptor:
@@ -88,7 +101,14 @@ def load_vibe_catalog(csv_path: str) -> List[dict]:
     """Read the text-only vibe catalog (id/title/artist/genre, no audio features)."""
     with open(csv_path, newline="") as f:
         return [
-            {"id": int(row["id"]), "title": row["title"], "artist": row["artist"], "genre": row["genre"]}
+            {
+                "id": int(row["id"]),
+                "title": row["title"],
+                "artist": row["artist"],
+                "genre": row["genre"],
+                "vibe": (row.get("vibe") or "").strip(),
+                "confidence": (row.get("confidence") or "").strip(),
+            }
             for row in csv.DictReader(f)
         ]
 
@@ -119,6 +139,15 @@ class VibeRecommender:
         with np.errstate(invalid="ignore", divide="ignore"):
             similarities = similarities / (song_norms * query_norm)
         similarities = np.nan_to_num(similarities)
+
+        # Songs whose vibe line was inferred rather than verified (see the
+        # `confidence` column in data/songs_vibe.csv) get their similarity
+        # nudged down, so a verified song wins a close match. Small enough not
+        # to bury a clearly-better inferred song.
+        weights = np.array(
+            [INFERRED_WEIGHT if song.get("confidence") == "inferred" else 1.0 for song in self.songs]
+        )
+        similarities = similarities * weights
 
         ranked = sorted(zip(self.songs, similarities), key=lambda pair: -pair[1])
         return [(song, float(score)) for song, score in ranked[:k]]

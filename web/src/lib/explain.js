@@ -50,6 +50,13 @@ export const GENRE_VIBE = {
 };
 
 export function explainMatch(song) {
+  // Prefer the song's own hand-written vibe line (the `vibe` column in
+  // data/songs_vibe.csv) — it's the actual text this song was matched on, so
+  // quoting it explains the match far better than the generic genre blurb.
+  const vibe = (song.vibe || "").trim();
+  if (vibe) {
+    return `Its vibe — “${vibe}” — matches what you described.`;
+  }
   const descriptor = GENRE_VIBE[song.genre];
   if (!descriptor) {
     return `This song's ${song.genre} sound lines up with the vibe you described.`;

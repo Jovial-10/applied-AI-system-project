@@ -35,6 +35,37 @@ def test_song_to_text_includes_identifying_fields():
     assert "lofi" in text
 
 
+def test_song_to_text_prefers_vibe_line_over_genre_descriptor():
+    """When a song carries a hand-written vibe line, the blurb is built from
+    it (a per-song semantic signal) rather than the generic per-genre
+    descriptor that made every song of a genre embed to near-identical text."""
+    song = {"id": 9, "title": "Velvet Hour", "artist": "Nocturne", "genre": "pop",
+            "vibe": "silky, bittersweet regret — guilt wrapped in velvet"}
+    text = song_to_text(song)
+    assert "silky, bittersweet regret" in text
+    # The genre-descriptor fallback should not fire when a vibe is present.
+    assert "radio-ready energy" not in text
+
+
+def test_recommend_downweights_inferred_on_a_close_match():
+    """On a near-tie, a verified ("known") song ranks ahead of an inferred one
+    whose raw similarity is marginally higher, because inferred rows are
+    down-weighted. See INFERRED_WEIGHT in src/vibe_recommender.py."""
+    songs = [
+        {"id": 1, "title": "Known Song", "artist": "A", "genre": "pop", "confidence": "known"},
+        {"id": 2, "title": "Inferred Song", "artist": "B", "genre": "pop", "confidence": "inferred"},
+    ]
+    vectors = {
+        song_to_text(songs[0]): [1.0, 0.0],
+        song_to_text(songs[1]): [0.96, 0.28],  # raw cosine ~0.96 vs known's 0.94...
+        "a warm pop vibe": [0.94, 0.34],
+    }
+    embed_fn = lambda texts: np.array([vectors[t] for t in texts])
+    results = VibeRecommender(songs, embed_fn=embed_fn).recommend("a warm pop vibe", k=2)
+    # Inferred's raw similarity is higher, but 0.9x weighting flips the order.
+    assert results[0][0]["title"] == "Known Song"
+
+
 def test_recommend_resists_literal_title_overlap_over_genre_mismatch():
     """Regression guard for a real production bug: a song whose title happens
     to share a literal word with the query (e.g. "High Hopes" for a "high

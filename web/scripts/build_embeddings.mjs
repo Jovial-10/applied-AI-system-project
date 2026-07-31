@@ -54,6 +54,15 @@ function parseCsv(text) {
 }
 
 function songToText(song) {
+  // The catalog now carries a hand-written, per-song vibe line (see the `vibe`
+  // column in data/songs_vibe.csv) — a far richer semantic signal than the
+  // per-genre descriptor, which embedded every song of a genre to nearly the
+  // same text. Prefer it; fall back to the genre descriptor only when a row
+  // has no vibe.
+  const vibe = (song.vibe || "").trim();
+  if (vibe) {
+    return `${song.title} by ${song.artist}: ${vibe}.`;
+  }
   const descriptor = GENRE_VIBE[song.genre];
   const genrePart = descriptor
     ? `${song.genre} song with ${descriptor.feature}, a ${descriptor.vibe} vibe`
@@ -78,6 +87,9 @@ async function main() {
       artist: song.artist,
       genre: song.genre,
       image: song.image_url || null,
+      vibe: (song.vibe || "").trim() || null,
+      // "known" (verified) vs "inferred"; the ranker down-weights inferred rows.
+      confidence: (song.confidence || "").trim() || null,
       vector: Array.from(output.data),
     });
     process.stdout.write(`\rEmbedded ${results.length}/${songs.length}`);
