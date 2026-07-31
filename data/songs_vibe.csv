@@ -32,10 +32,8 @@ id,title,artist,genre,image_url,vibe,confidence
 31,ICONIC BY MISTAKE,LE SSERAFIM,pop,https://i.scdn.co/image/ab67616d00001e0255886e2f0784a2b7b62b7fe7,"sleek, confident K-pop cool",known
 32,Sign of the Times,Harry Styles,pop,https://i.scdn.co/image/ab67616d00001e023f8b8a9c71b2bd2f3019940b,"sweeping, apocalyptic art-pop grandeur",known
 33,No One Noticed,The Marías,pop,https://i.scdn.co/image/ab67616d00001e028aa339341a0b0c813909c831,"hazy, sultry, dreamlike restraint",known
-34,the cure,Olivia Rodrigo,pop,https://i.scdn.co/image/ab67616d00001e0279e480cbab8c7b86d277841a,"sweet, polished, hook-driven charm",inferred
 35,That's What I Like,Bruno Mars,pop,https://i.scdn.co/image/ab67616d00001e02232711f7d66a1e19e89e28c5,"slinky, retro, feel-good seduction",known
 36,I Had Some Help (Feat. Morgan Wallen),Post Malone,pop,https://i.scdn.co/image/ab67616d00001e0288208159b1b3c69eefdeb2e0,"rowdy, hard-drinking heartbreak singalong",known
-37,stupid song,Olivia Rodrigo,pop,https://i.scdn.co/image/ab67616d00001e026949b83f85d782b21ce70583,"sweet, polished, hook-driven charm",inferred
 38,Roommates,Malcolm Todd,pop,https://i.scdn.co/image/ab67616d00001e022c1f34ecc1929fb59908aad1,"punchy, danceable, mood-boosting",inferred
 39,American Girls,Harry Styles,pop,https://i.scdn.co/image/ab67616d00001e0274959140f550b11049c18a38,"breezy, nostalgic road-trip glow",known
 40,purple,Olivia Rodrigo,pop,https://i.scdn.co/image/ab67616d00001e025cf234eeb7a2edf44bf64a46,"sweet, polished, hook-driven charm",inferred
@@ -161,7 +159,6 @@ id,title,artist,genre,image_url,vibe,confidence
 160,Theme Patcher - Unusal Cosmic Process remix,Tentura,ambient,https://i.scdn.co/image/ab67616d00001e02340487de7b732d5992c203a9,"reworked, ethereal club edit",inferred
 161,Lover Girl,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e02be1e41eda793059fb9129bff,"dreamy, longing, old-Hollywood tenderness",known
 162,From The Start,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e0274c732f8aa0e0ccbb3d17d96,"warm, jazzy, lovesick daydream",known
-163,Lover Girl,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e028f68f6e65c1cfd36bb21561c,"loose, sophisticated, mellow groove — soft-hearted swoon",inferred
 164,Valentine,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e0248341e864d4b4881f56f01b4,"sweet, wistful, tender crush",known
 165,Let You Break My Heart Again,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e029457bba66a2daf4456855bb7,"loose, sophisticated, mellow groove",inferred
 166,What A Wonderful World,Louis Armstrong,jazz,https://i.scdn.co/image/ab67616d00001e02845a5660b804e5f3e821fbed,"gentle, grateful, timeless wonder",known
@@ -169,7 +166,6 @@ id,title,artist,genre,image_url,vibe,confidence
 168,Promise,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e0274c732f8aa0e0ccbb3d17d96,"supple, swinging, easy elegance",inferred
 169,Madwoman,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e026ec6bdb1b31c8cb6b1d3511f,"cool, brushed, late-night intimacy",inferred
 170,Don't Know Why,Norah Jones,jazz,https://i.scdn.co/image/ab67616d00001e02c648a42b5dad72c8aafceeec,"soft, aching, midnight mystery",known
-171,From The Start,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e0210ee65ae464018c19c8e8ab4,"smooth, warm, lamplit lounge feel — dreamy and floating",inferred
 172,bake shop,kuala,jazz,https://i.scdn.co/image/ab67616d00001e02540c6a5c78bd857c85bb256d,"supple, swinging, easy elegance",inferred
 173,Silver Lining,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e028f68f6e65c1cfd36bb21561c,"smooth, warm, lamplit lounge feel",inferred
 174,Fragile,Laufey,jazz,https://i.scdn.co/image/ab67616d00001e0248341e864d4b4881f56f01b4,"supple, swinging, easy elegance",inferred
@@ -264,7 +260,6 @@ id,title,artist,genre,image_url,vibe,confidence
 263,K.,Cigarettes After Sex,indie pop,https://i.scdn.co/image/ab67616d00001e02dfed999f959177dfc4f33cdc,"jangly, tender, lo-fi longing",inferred
 264,Sunsetz,Cigarettes After Sex,indie pop,https://i.scdn.co/image/ab67616d00001e02dfed999f959177dfc4f33cdc,"hazy, heartfelt, soft-focus charm — dancefloor joy",inferred
 265,Friday I'm in Love,The Cure,indie pop,https://i.scdn.co/image/ab67616d00001e02e410fa31e3dfcc7521cde86d,"bright, giddy, love-drunk bounce",known
-266,Everybody Wants To Rule The World,Tears For Fears,indie pop,https://i.scdn.co/image/ab67616d00001e025e12c35cb4c848a927ef4b69,"jangly, tender, lo-fi longing",inferred
 267,Apple Cider,beabadoobee,indie pop,https://i.scdn.co/image/ab67616d00001e02ceca3ef39ab8f9b59acff394,"hazy, heartfelt, soft-focus charm",inferred
 268,Malcolm In The Middle,Malcolm Todd,indie pop,https://i.scdn.co/image/ab67616d00001e02a1cac678024bb37d83ab012c,"hazy, heartfelt, soft-focus charm",inferred
 269,Back To Me,The Marías,indie pop,https://i.scdn.co/image/ab67616d00001e02a66ab2cbaebcc84ddd45a078,"melancholy, catchy, overthinking warmth",inferred
@@ -282,7 +277,6 @@ id,title,artist,genre,image_url,vibe,confidence
 281,I Love Mondays,Vexento,edm,https://i.scdn.co/image/ab67616d00001e02d60a923c5233a66db07bb340,"shiny, build-and-drop euphoria — tender and lovestruck",inferred
 282,Three Thousand (Radio Edit),LarsM,edm,https://i.scdn.co/image/ab67616d00001e02810d905f6b97098684269058,"reworked, bouncy club edit",inferred
 283,Nervous - Mixed,KO3,edm,https://i.scdn.co/image/ab67616d00001e02fd0613c81a47676632f590c7,"reworked, glittering club edit",inferred
-284,I Love Mondays,Vexento,edm,https://i.scdn.co/image/ab67616d00001e02f5e946e55525a29c137a117c,"shiny, build-and-drop euphoria — tender and lovestruck",inferred
 285,Traffic Jam,Slow Fresh Oil,edm,https://i.scdn.co/image/ab67616d00001e02769ae3081fbc924c0238821a,"pounding, festival-sized adrenaline",inferred
 286,We Chase the Sun,Mike Plume Band,edm,https://i.scdn.co/image/ab67616d00001e02407efe727a6b694651e1a37d,"glittering, uptempo, peak-time energy — dancefloor joy",inferred
 287,My Lies,Amber Suchy,edm,https://i.scdn.co/image/ab67616d00001e029a9873e3259b4b234706ed53,"high-energy, euphoric, hands-up rush",inferred
@@ -292,17 +286,13 @@ id,title,artist,genre,image_url,vibe,confidence
 291,Life,John Dahlbäck,edm,https://i.scdn.co/image/ab67616d00001e02c91e420dd22f12e3a8ff7ece,"shiny, build-and-drop euphoria",inferred
 292,W.H.Y Jazz Fm,Andezzz,edm,https://i.scdn.co/image/ab67616d00001e02fee9937597198ca5769d96b1,"bright, building, dancefloor euphoria",inferred
 293,The Balance Of The Soul - Michal Jesensky Remix,Foxa,edm,https://i.scdn.co/image/ab67616d00001e02a282977fc099a1ceee8719f1,"reworked, driving club edit",inferred
-294,Three Thousand (Radio Edit),LarsM,edm,https://i.scdn.co/image/ab67616d00001e02aab58bb06c35a76359f4c51d,"reworked, bouncy club edit",inferred
 295,Won't Tell,Cadence & Nathan,edm,https://i.scdn.co/image/ab67616d00001e02ae50dd54ba1df9d3ad2293bc,"shiny, build-and-drop euphoria",inferred
-296,Fire in the Sky,Project 91,edm,https://i.scdn.co/image/ab67616d00001e02ce296171ad8a7fd22edef7ca,"high-energy, euphoric, hands-up rush — hot-blooded and intense",inferred
-297,Fire in the Sky,Project 91,edm,https://i.scdn.co/image/ab67616d00001e021513e4021642d39456fb391b,"high-energy, euphoric, hands-up rush — hot-blooded and intense",inferred
 298,Take Your Thyme,The Consonance,edm,https://i.scdn.co/image/ab67616d00001e028c23bde6e9c849cf609284b1,"bright, building, dancefloor euphoria",inferred
 299,Thoughts In Black And White,The Consonance,edm,https://i.scdn.co/image/ab67616d00001e028c23bde6e9c849cf609284b1,"pounding, festival-sized adrenaline",inferred
 300,The Lert,Slow Fresh Oil,edm,https://i.scdn.co/image/ab67616d00001e02769ae3081fbc924c0238821a,"high-energy, euphoric, hands-up rush",inferred
 301,Rainbow (Extended Club Mix),Kanae Asaba,edm,https://i.scdn.co/image/ab67616d00001e023fcc43ac360fd246f259742d,"reworked, high-energy club edit",inferred
 302,Holding On,Doug Hoyer,edm,https://i.scdn.co/image/ab67616d00001e02b27fcdaf193a2fb393ba9368,"driving, glowstick-bright pulse",inferred
 303,Batgirl - Edit,Kahikko,edm,https://i.scdn.co/image/ab67616d00001e021ed8be6103af91b00a310a78,"reworked, bouncy club edit",inferred
-304,Three Thousand (Radio Edit),LarsM,edm,https://i.scdn.co/image/ab67616d00001e021f3f93a88f5bb894b6a15c97,"reworked, bouncy club edit",inferred
 305,Believe in Shame - Original Mix,Mandragora,edm,https://i.scdn.co/image/ab67616d00001e02e621f831f8ab8c560ae99910,"reworked, driving club edit",inferred
 306,Secret - Interlude,Tennyson,edm,https://i.scdn.co/image/ab67616d00001e0263b0b35f599f4b1a3cdd82e2,"short, transitional, scene-setting moment",inferred
 307,After the Morning After,Ayla Brook,edm,https://i.scdn.co/image/ab67616d00001e02b5cc7022e6e440ca0531e752,"bouncy, festival-field glitter",inferred
@@ -312,20 +302,17 @@ id,title,artist,genre,image_url,vibe,confidence
 311,"The Imperial March (From ""Star Wars A New Hope"") [Chiptune]",Funny Boy,edm,https://i.scdn.co/image/ab67616d00001e025c71793802faf7f7dec0e250,"pulsing, relentless, drop-driven hype — soft-focus reverie",inferred
 312,Out of Season,Doug Hoyer,edm,https://i.scdn.co/image/ab67616d00001e02b27fcdaf193a2fb393ba9368,"pulsing, relentless, drop-driven hype",inferred
 313,Believe in Shame - House Rhythms Mix,Mandragora,edm,https://i.scdn.co/image/ab67616d00001e0290ce49377c84b7d803bc8b5f,"reworked, bright club edit",inferred
-314,Believe in Shame - Original Mix,Mandragora,edm,https://i.scdn.co/image/ab67616d00001e027c1c707d7ca44442519391b7,"reworked, driving club edit",inferred
 315,Shadow - Original,Kohra,edm,https://i.scdn.co/image/ab67616d00001e028bae1b39d8c2151ccb25195f,"high-energy, euphoric, hands-up rush — late-night mood",inferred
 316,Fake Play,Abruzzi Spur,edm,https://i.scdn.co/image/ab67616d00001e028dbd4e47f6664ea79965b443,"shiny, build-and-drop euphoria",inferred
 317,Landslides,Breaking For Love,edm,https://i.scdn.co/image/ab67616d00001e02122da32ebc380e4aa489843c,"glittering, uptempo, peak-time energy",inferred
 318,Now You See It,Hungry Hollow,edm,https://i.scdn.co/image/ab67616d00001e023c1a29c3fd0e4e86edd6e01e,"shiny, build-and-drop euphoria",inferred
 319,Big Star,Stew Kirkwood,edm,https://i.scdn.co/image/ab67616d00001e02de567508ab3f36e901105610,"driving, glowstick-bright pulse — dreamy and floating",inferred
-320,Fire in the Sky,Project 91,edm,https://i.scdn.co/image/ab67616d00001e02a0da1561d8493e283e75e357,"high-energy, euphoric, hands-up rush — hot-blooded and intense",inferred
 321,Choosin' Texas,Ella Langley,country,https://i.scdn.co/image/ab67616d00001e0290958927fbba47a62c3e63f8,"wistful, wandering heartbreak",known
 322,Broken Window Serenade,Whiskey Myers,country,https://i.scdn.co/image/ab67616d00001e022a56fbcf4c26d35d6e0bd9f1,"gritty, redemptive Southern ballad",known
 323,I'm The Problem,Morgan Wallen,country,https://i.scdn.co/image/ab67616d00001e0235ea219ce47813b5e2dc3745,"defiant, self-aware honky-tonk swagger",known
 324,I Got Better,Morgan Wallen,country,https://i.scdn.co/image/ab67616d00001e0235ea219ce47813b5e2dc3745,"dusty, warm, back-road nostalgia",inferred
 325,I Remember Everything (feat. Kacey Musgraves),Zach Bryan,country,https://i.scdn.co/image/ab67616d00001e023bd1de7368f5f1efd1d787b3,"aching, nostalgic duet of lingering love",known
 326,Be Her,Ella Langley,country,https://i.scdn.co/image/ab67616d00001e028606848da949bbaddf447d87,"tender, sun-worn, small-town ache",inferred
-327,Choosin' Texas,Ella Langley,country,https://i.scdn.co/image/ab67616d00001e028606848da949bbaddf447d87,"twangy, honest, front-porch feeling",inferred
 328,I Can't Love You Anymore,Ella Langley,country,https://i.scdn.co/image/ab67616d00001e020c20b697b7cc3bfe3eb954bc,"heartfelt, rootsy, wide-open storytelling — tender and lovestruck",inferred
 329,You Should Probably Leave,Chris Stapleton,country,https://i.scdn.co/image/ab67616d00001e029408342067e2ff50d69a3c98,"smoldering, reluctant desire",known
 330,weren't for the wind,Ella Langley,country,https://i.scdn.co/image/ab67616d00001e02edf9ec71330d53881ee0c2d9,"rowdy, hard-living, honky-tonk spirit",inferred
@@ -350,7 +337,6 @@ id,title,artist,genre,image_url,vibe,confidence
 349,Been By Now,Morgan Wallen,country,https://i.scdn.co/image/ab67616d00001e02349f6c0133abbfca063891c1,"dusty, warm, back-road nostalgia",inferred
 350,7 Summers,Morgan Wallen,country,https://i.scdn.co/image/ab67616d00001e02d11e2e1e9a84f6fbf864536d,"nostalgic, slow-burning summer ache",known
 351,Ain't No Love In Oklahoma (From Twisters: The Album),Luke Combs,country,https://i.scdn.co/image/ab67616d00001e026f555ba312f3317dcbaa2cb9,"rowdy, hard-living, honky-tonk spirit — starry-eyed longing",inferred
-352,Be Her,Ella Langley,country,https://i.scdn.co/image/ab67616d00001e0244cfd85001629f8f476d2723,"tender, sun-worn, small-town ache",inferred
 353,Head Over Boots,Jon Pardi,country,https://i.scdn.co/image/ab67616d00001e0214d09c1ad67f2028764ee0f4,"dusty, warm, back-road nostalgia",inferred
 354,Thinkin’ Bout Me,Morgan Wallen,country,https://i.scdn.co/image/ab67616d00001e028337dd45f445c35f7292a81e,"dusty, warm, back-road nostalgia",inferred
 355,Pink Skies,Zach Bryan,country,https://i.scdn.co/image/ab67616d00001e0236fbdbea696df93933bafdb8,"bittersweet, wide-sky farewell",known
@@ -456,7 +442,6 @@ id,title,artist,genre,image_url,vibe,confidence
 455,Porch Light,Noah Kahan,folk,https://i.scdn.co/image/ab67616d00001e02d879855b819250d3d00a1a38,"spare, tender, campfire honesty",inferred
 456,Lighthouse,Noah Kahan,folk,https://i.scdn.co/image/ab67616d00001e02c39789e2dbdad5af5736e07a,"spare, tender, campfire honesty",inferred
 457,Sister Golden Hair,America,folk,https://i.scdn.co/image/ab67616d00001e02865a956fe40cf54597e97fd2,"sun-warmed, nostalgic golden glow",known
-458,Doors,Noah Kahan,folk,https://i.scdn.co/image/ab67616d00001e02c39789e2dbdad5af5736e07a,"gentle, homespun, heart-on-sleeve",inferred
 459,A Few Of Your Own,Noah Kahan,folk,https://i.scdn.co/image/ab67616d00001e02c39789e2dbdad5af5736e07a,"gentle, homespun, heart-on-sleeve",inferred
 460,Scared To Start,Michael Marcagi,folk,https://i.scdn.co/image/ab67616d00001e023b15ac45d0f9c29a0c8a2baa,"earthy, reflective, acoustic warmth — dreamy and floating",inferred
 461,Stubborn Love,The Lumineers,folk,https://i.scdn.co/image/ab67616d00001e02f350c13195ce048876b5fea4,"rustic, aching, wide-sky longing — soft-hearted swoon",inferred
@@ -465,8 +450,6 @@ id,title,artist,genre,image_url,vibe,confidence
 464,God Needs The Devil,Jonah Kagen,folk,https://i.scdn.co/image/ab67616d00001e02db34ae82285e3ed2ae1c309e,"gentle, homespun, heart-on-sleeve — uplifting faith",inferred
 465,Little Talks,Of Monsters and Men,folk,https://i.scdn.co/image/ab67616d00001e02cb3f67e8026e2e493a1e8262,"haunting, call-and-response melancholy",known
 466,Dan,Noah Kahan,folk,https://i.scdn.co/image/ab67616d00001e02c39789e2dbdad5af5736e07a,"rustic, aching, wide-sky longing",inferred
-467,Porch Light,Noah Kahan,folk,https://i.scdn.co/image/ab67616d00001e02c39789e2dbdad5af5736e07a,"spare, tender, campfire honesty",inferred
-468,The Great Divide,Noah Kahan,folk,https://i.scdn.co/image/ab67616d00001e02c39789e2dbdad5af5736e07a,"rustic, aching, wide-sky longing",inferred
 469,anything,Adrianne Lenker,folk,https://i.scdn.co/image/ab67616d00001e028ebe185fc4824bc6e568b511,"earthy, reflective, acoustic warmth",inferred
 470,Knockin' On Heaven's Door,Bob Dylan,folk,https://i.scdn.co/image/ab67616d00001e026c86683d20c72e3874c11c6d,"weary, resigned, timeless farewell",known
 471,Jersey Giant,Evan Honer,folk,https://i.scdn.co/image/ab67616d00001e02d12991800dac78791d63a899,"weathered, wistful, storytelling calm",inferred
@@ -475,9 +458,7 @@ id,title,artist,genre,image_url,vibe,confidence
 474,All the Debts I Owe,Caamp,folk,https://i.scdn.co/image/ab67616d00001e024e5bdd992f106b27d82d50d1,"weathered, wistful, storytelling calm",inferred
 475,Cleopatra,The Lumineers,folk,https://i.scdn.co/image/ab67616d00001e0221b550b66cf1391c6642088c,"tender, cinematic devotion",known
 476,Bloom - Bonus Track,The Paper Kites,folk,https://i.scdn.co/image/ab67616d00001e0255bd9d9e0f50d28ddc9c1308,"gentle, homespun, heart-on-sleeve",inferred
-477,Dan,Noah Kahan,folk,https://i.scdn.co/image/ab67616d00001e02d879855b819250d3d00a1a38,"rustic, aching, wide-sky longing",inferred
 478,Spoiled,Noah Kahan,folk,https://i.scdn.co/image/ab67616d00001e02c39789e2dbdad5af5736e07a,"weathered, wistful, storytelling calm",inferred
-479,Riptide,Vance Joy,folk,https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094,"breezy, wistful, lovestruck singalong",known
 480,Coastline,Hollow Coves,folk,https://i.scdn.co/image/ab67616d00001e022735fa941859fad0e5cc7460,"serene, wide-open coastal calm",known
 481,Pink + White,Frank Ocean,soul,https://i.scdn.co/image/ab67616d00001e02c5649add07ed3720be9d5526,"warm, hazy, sun-dappled infatuation",known
 482,A Couple Minutes,Olivia Dean,soul,https://i.scdn.co/image/ab67616d00001e029a336bfb6d40bbd90a507417,"warm, uplifting, spirit-lifting soul",inferred
@@ -607,7 +588,6 @@ id,title,artist,genre,image_url,vibe,confidence
 606,"Love is in the Air, Pt. 1",Rock Burwell,classical,https://i.scdn.co/image/ab67616d00001e02531d56638f62ec451862127e,"serene, graceful, meditative calm — starry-eyed longing",inferred
 607,Army Dreamers - 2018 Remaster,Kate Bush,classical,https://i.scdn.co/image/ab67616d00001e0222cd84bf3376a422b214cf60,"serene, graceful, meditative calm — hazy and untethered",inferred
 608,"Soldier, Poet, King",The Oh Hellos,classical,https://i.scdn.co/image/ab67616d00001e0239521e60d8d11783d9f5e3b1,"stirring, dramatic, orchestral swell — dancefloor joy",inferred
-609,Golden Brown,The Stranglers,classical,https://i.scdn.co/image/ab67616d00001e0247066a9aac4e3493fe5b8677,"elegant, cinematic, emotionally sweeping",inferred
 610,"Suite bergamasque, L. 75: III. Clair de lune",Claude Debussy,classical,https://i.scdn.co/image/ab67616d00001e021277085743389aa91af6f39b,"serene, moonlit, drifting reverie",known
 611,Solace,Txmy,classical,https://i.scdn.co/image/ab67616d00001e023dc9c5a16996de9e734b6221,"elegant, cinematic, emotionally sweeping — upbeat and celebratory",inferred
 612,Bear,Rock Burwell,classical,https://i.scdn.co/image/ab67616d00001e02531d56638f62ec451862127e,"delicate, poised, tender beauty",inferred
@@ -789,7 +769,6 @@ id,title,artist,genre,image_url,vibe,confidence
 788,PSA,Danico,gospel,https://i.scdn.co/image/ab67616d00001e023e98286b883598413a1b0f93,"radiant, choir-lifted devotion",inferred
 789,Forgive Me,Hans-Inge Fagervik,gospel,https://i.scdn.co/image/ab67616d00001e020d0c60d1f15552387be98e34,"warm, hopeful, heaven-facing glow",inferred
 790,"Roberval, o Sapo - Play Back",Maurão,gospel,https://i.scdn.co/image/ab67616d00001e028a3b6f9ab5b60b9e505c7884,"rousing, faithful, spirit-lifting",inferred
-791,I Wanna Be the Only One,Bebe Winans,gospel,https://i.scdn.co/image/ab67616d00001e024363feb34188df4d642071e7,"warm, hopeful, heaven-facing glow",inferred
 792,Gomorron Gud,Torkel Selin,gospel,https://i.scdn.co/image/ab67616d00001e02cc88ac6ef33600fffb5d5818,"radiant, choir-lifted devotion — reverent and soul-stirring",inferred
 793,Change the Bombs for Bread,Mia Marianne & Per Filip,gospel,https://i.scdn.co/image/ab67616d00001e02534f73c54551baa3a41fa3f1,"tender, prayerful, grace-filled",inferred
 794,Det E'kje Bagateller,Bjarte Leithaug,gospel,https://i.scdn.co/image/ab67616d00001e026043a22afb33e7ea491bfcc6,"joyful, foot-stomping revival",inferred
@@ -841,26 +820,15 @@ id,title,artist,genre,image_url,vibe,confidence
 840,Дома,Aidar BMM,k-pop,https://i.scdn.co/image/ab67616d00001e022233346a842e84da090fcfbb,"stirring, traditional, soul-deep feeling — rooted and warm",inferred
 841,When the Day Comes,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e021528d0868124bbef110b9317,"warm, hopeful, sun-rising afro-pop lift",known
 842,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e0225c439e7eb6a1e1d8f7a3bd7,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-843,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e0290bf122c9092c19436dad19c,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-844,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e0250397326b3486aba95e09bcd,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-845,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e02cd3ffb6857ebd228e36dade7,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
 846,Cheeii,Dremo,afrobeats,https://i.scdn.co/image/ab67616d00001e02c835a0e8a208dda544c1941b,"laid-back, guitar-lick, easy sway",inferred
 847,Jahova,Daddy Showkey,afrobeats,,"laid-back, guitar-lick, easy sway",inferred
 848,If To Say Ft Ikechukwu,Sound Sultan,afrobeats,https://i.scdn.co/image/ab67616d00001e029d2f9ea423ab6de043a78f65,"warm,street-party, feel-good groove",inferred
 849,Halelluya,Lord Of Ajasa,afrobeats,https://i.scdn.co/image/ab67616d00001e02b37b51142024c4714daa92e8,"sunny, rhythmic, hip-swaying energy",inferred
 850,Hustle,Durella,afrobeats,https://i.scdn.co/image/ab67616d00001e025f6016e52ee309576a09f579,"laid-back, groovy, good-vibes sway",inferred
-851,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e02208e3bc20cd14e06e422c2bd,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-852,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e02613934eac020239d662532e4,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-853,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e02612a5b30c13103585fefeed2,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-854,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e027803ff55113d902232210ccb,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-855,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e02da50e42206e84ff514f535b9,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-856,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e0291502eb7d7277c3a1c043358,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
 857,You Are,Djinee,afrobeats,https://i.scdn.co/image/ab67616d00001e022315b2d5c87a7f7091747340,"sunny, rhythmic, hip-swaying energy",inferred
 858,Binu Men,Eedris Abdulkareem,afrobeats,https://i.scdn.co/image/ab67616d00001e0225f2dda42d9cdd899af3c791,"warm, danceable, street-party groove",inferred
 859,Welcome,Daddy Showkey,afrobeats,,"laid-back, groovy, good-vibes sway",inferred
 860,"Omoge (feat. Pype, Ghetto P & Iceberg Slim)",Sauce Kid,afrobeats,https://i.scdn.co/image/ab67616d00001e028dca37b6b28f00825d2fa20f,"laid-back, guitar-lick, easy sway",inferred
-861,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e02a1b8f5114ff25acf7247bc2c,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-862,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e02e67597ad070fc9d0366fea32,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
 863,Body Dey Do Me,African China,afrobeats,https://i.scdn.co/image/ab67616d00001e0222e8dde2eee9e77c7415b727,"warm, danceable, street-party groove",inferred
 864,Say No,Eedris Abdulkareem,afrobeats,https://i.scdn.co/image/ab67616d00001e02a3280ef9048ccc5b3be097e8,"warm,street-party, feel-good groove",inferred
 865,Mr Lecturer - Kennis Music's Los Angeles Remix,Eedris Abdulkareem,afrobeats,https://i.scdn.co/image/ab67616d00001e020bccbfb53cee68941da0ddf7,"reworked, laid-back club edit",inferred
@@ -868,11 +836,6 @@ id,title,artist,genre,image_url,vibe,confidence
 867,Omo Ja Jo Sere,Lord Of Ajasa,afrobeats,https://i.scdn.co/image/ab67616d00001e02cda911ba9a6aaafeab7e776c,"warm,street-party, feel-good groove",inferred
 868,Africa,African China,afrobeats,https://i.scdn.co/image/ab67616d00001e02725e3a4dc3c7f64adf1ebdae,"laid-back, groovy, good-vibes sway",inferred
 869,Endondemadt,Sauce Kid,afrobeats,https://i.scdn.co/image/ab67616d00001e028dca37b6b28f00825d2fa20f,"warm, danceable, street-party groove",inferred
-870,Halelluya,Lord Of Ajasa,afrobeats,https://i.scdn.co/image/ab67616d00001e0270c360940d3961120707697a,"sunny, rhythmic, hip-swaying energy",inferred
-871,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e02c60b9e5ba61592d78eac6a88,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-872,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e0278d1199978702b6e5168561f,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-873,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e021482d203ffc221a312dad263,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
-874,Am I Wrong,Nico & Vinz,afrobeats,https://i.scdn.co/image/ab67616d00001e0217a627c251cddf42f1b993ec,"uplifting, defiant, follow-your-heart anthem — buoyant and hopeful",known
 875,Ride or Die,Djinee,afrobeats,https://i.scdn.co/image/ab67616d00001e022315b2d5c87a7f7091747340,"laid-back, guitar-lick, easy sway",inferred
 876,Mother's Tribute,African China,afrobeats,https://i.scdn.co/image/ab67616d00001e0222e8dde2eee9e77c7415b727,"buoyant, percussive, feel-good bounce",inferred
 877,Mi Name,African China,afrobeats,https://i.scdn.co/image/ab67616d00001e02554eecc966ac48230e5f0d51,"bright, chant-along, dancefloor lift",inferred
@@ -902,7 +865,6 @@ id,title,artist,genre,image_url,vibe,confidence
 901,Jetzt ist der Teufel los - Böhmenkirch Fan-Mix Jessiii,Tobee,disco,https://i.scdn.co/image/ab67616d00001e02ddb20c35970a774bedfd8b68,"giddy, oompah, stein-swinging romp",inferred
 902,Besser widerlich als wieder nicht,Willi Wedel,disco,https://i.scdn.co/image/ab67616d00001e02d3f08a45c7b6a130e39310a1,"rowdy, sing-along, beer-tent bounce",inferred
 903,Cowboy und Indianer (Komm hol das Lasso raus!) - Hit Version,Coolonia,disco,https://i.scdn.co/image/ab67616d00001e0271756d351f777f965de6ac6d,"reworked, bright club edit",inferred
-904,"Uschi, Otze, Erna (Wir feiern auch mit Werner)",Andy Luxx,disco,https://i.scdn.co/image/ab67616d00001e0263ddab4ba65ec7b3341279b7,"bright, silly, hands-in-the-air fun — dancefloor joy",inferred
 905,Schnaps das war sein letztes Wort 2014,Matty Valentino,disco,https://i.scdn.co/image/ab67616d00001e02648b443522c271a945b1ad47,"rowdy, sing-along, beer-tent bounce",inferred
 906,1000 Liter Bier,Chaos Team,disco,https://i.scdn.co/image/ab67616d00001e02594b3b6834f16896b6ea0e05,"festive, upbeat, party-all-night fun — giddy and festive",inferred
 907,Pigalle (Die große Mausefalle),J. P. Love,disco,https://i.scdn.co/image/ab67616d00001e02dcd69e2700a9decce743eac1,"glittery, campy, dancefloor silliness",inferred
@@ -929,7 +891,6 @@ id,title,artist,genre,image_url,vibe,confidence
 928,Lamento de Mayohuacán - Remasterizado,Los Llamas,funk,https://i.scdn.co/image/ab67616d00001e0222cc7e4239d77ed9caa442e1,"greasy, clav-driven strut — melancholy and aching",inferred
 929,Funky Orb,Rick Gardner,funk,https://i.scdn.co/image/ab67616d00001e021c9d69e41da159b5f8df2c57,"sweaty, wah-soaked groove — upbeat and celebratory",inferred
 930,Imprescindible,Milhojas,funk,https://i.scdn.co/image/ab67616d00001e0219c5124a667528d7ab2ad215,"tight, horn-punched pocket",inferred
-931,Rather Be (feat. Jess Glynne),Clean Bandit,funk,https://i.scdn.co/image/ab67616d00001e020dd334f4c22549a81244107b,"groovy, syncopated, irresistibly danceable",inferred
 932,These Days,Rudimental,funk,https://i.scdn.co/image/ab67616d00001e024a3698434a416c0b88b026cd,"slinky, rhythmic, dancefloor heat",inferred
 933,Open,Uni Deluxe,funk,https://i.scdn.co/image/ab67616d00001e0284d579aa98c9d083b3ac323b,"greasy, strutting, hip-shaking pocket",inferred
 934,Richiami Metropolitani,Tony Esposito,funk,https://i.scdn.co/image/ab67616d00001e024f6980ac96698f2ac94bc3da,"greasy, clav-driven strut",inferred
@@ -949,7 +910,6 @@ id,title,artist,genre,image_url,vibe,confidence
 948,Heaven,Danny Massure,funk,https://i.scdn.co/image/ab67616d00001e02c499661e6e8abe3072b4ccfb,"loose, thumping, hip-roll funk — reverent and soul-stirring",inferred
 949,Keep On Dancing - Single Version;Remastered,Commodores,funk,https://i.scdn.co/image/ab67616d00001e0249e2e6c1a3c80184294391cf,"reworked, loose club edit",inferred
 950,Now Me Know,Prophet,funk,https://i.scdn.co/image/ab67616d00001e023db46675066704409f7edc71,"groovy, syncopated, irresistibly danceable",inferred
-951,Natural High,Bloodstone,funk,https://i.scdn.co/image/ab67616d00001e029b303c4cb692a81a5918b913,"loose, thumping, hip-roll funk",inferred
 952,Stinger,Ursula 1000,funk,https://i.scdn.co/image/ab67616d00001e02260c5055dbcfe4c0e2d979d2,"warm, retro, feel-good funk",inferred
 953,The Detectives (Link 2c),Alan Tew,funk,https://i.scdn.co/image/ab67616d00001e0202f20e93ddacebdf80a29d5d,"groovy, syncopated, irresistibly danceable",inferred
 954,Scenechange (3a),Alan Tew,funk,https://i.scdn.co/image/ab67616d00001e02c90f4c20358dbe3f4d89c8d4,"sweaty, wah-soaked groove",inferred
@@ -1001,7 +961,6 @@ id,title,artist,genre,image_url,vibe,confidence
 1000,This Here - Instrumental,DJ Lee,trance,https://i.scdn.co/image/ab67616d00001e026a757b43c9c6e931f6146068,"crystalline, instrumental and mood-setting",inferred
 1001,Bronx Life,Peshay,drum and bass,https://i.scdn.co/image/ab67616d00001e0252ab3687a9323ff95ee97b74,"liquid, rolling, night-flight rush",inferred
 1002,Vanguard,Peshay,drum and bass,https://i.scdn.co/image/ab67616d00001e024db19c4cd725735801343fe3,"punchy, relentless, floor-shaking",inferred
-1003,Vanguard,Peshay,drum and bass,https://i.scdn.co/image/ab67616d00001e0252ab3687a9323ff95ee97b74,"punchy, relentless, floor-shaking",inferred
 1004,I Never Gonna Give Up,Irok,drum and bass,https://i.scdn.co/image/ab67616d00001e02778c83ba98195abfd1e30845,"frenetic, bass-heavy, breakbeat rush",inferred
 1005,Came to Spray - Instrumental,Jonny Faith,drum and bass,https://i.scdn.co/image/ab67616d00001e028d338bab0e5e152073873b54,"deep, instrumental and mood-setting",inferred
 1006,Metropolis,Coco Bryce,drum and bass,https://i.scdn.co/image/ab67616d00001e027f3beddf82a2e0523b2da471,"frenetic, bass-heavy, breakbeat rush",inferred
@@ -1011,29 +970,20 @@ id,title,artist,genre,image_url,vibe,confidence
 1010,New Progress,Jonny Faith,drum and bass,https://i.scdn.co/image/ab67616d00001e023b636c55dd4ea49ed79c3bb5,"dark, stomping, jungle pressure",inferred
 1011,The Rain,Etch,drum and bass,https://i.scdn.co/image/ab67616d00001e022965432fa3d104367284f8c1,"liquid, rolling, night-flight rush",inferred
 1012,Slumber,Jonny Faith,drum and bass,https://i.scdn.co/image/ab67616d00001e02645f6cafef899865577b12fb,"airy, breakbeat, adrenal glide",inferred
-1013,Slumber,Jonny Faith,drum and bass,https://i.scdn.co/image/ab67616d00001e02d6bb2c59af13c8dd6122d5ca,"airy, breakbeat, adrenal glide",inferred
 1014,The Pigs Bollox,DJ Obese,drum and bass,https://i.scdn.co/image/ab67616d00001e022af9f734f0869a0a7312e1ee,"punchy, relentless, floor-shaking",inferred
 1015,Wish Upon A Star - Hypertone Remix,David Boomah,drum and bass,https://i.scdn.co/image/ab67616d00001e02486167af34ea142d0b58c7e7,"reworked, frenetic club edit",inferred
 1016,2012,Marcus Visionary,drum and bass,https://i.scdn.co/image/ab67616d00001e025e1d979f75bd217c9d7b3055,"airy, breakbeat, adrenal glide",inferred
 1017,Neva Change,Double O,drum and bass,https://i.scdn.co/image/ab67616d00001e02e76a27d09c149f8938f958db,"dark, propulsive, adrenaline surge",inferred
 1018,Stay in Your Lane - Instrumental,Jonny Faith,drum and bass,https://i.scdn.co/image/ab67616d00001e02b0d5ec02907c39625167ef5a,"airy, instrumental and mood-setting",inferred
-1019,Le Sucre,Jonny Faith,drum and bass,https://i.scdn.co/image/ab67616d00001e02986fe241b8720d8fe8531301,"punchy, relentless, floor-shaking",inferred
 1020,Mars (Saxy Beast),Brad Impact,drum and bass,https://i.scdn.co/image/ab67616d00001e0298089204f85e9d7af6f18980,"liquid, energetic, jungle-tinged momentum",inferred
-1021,The Rain,Etch,drum and bass,https://i.scdn.co/image/ab67616d00001e02e672a1343090dc8938aaf60e,"liquid, rolling, night-flight rush",inferred
-1022,The Rain,Etch,drum and bass,https://i.scdn.co/image/ab67616d00001e021cb0ca20120debdc77e3fd77,"liquid, rolling, night-flight rush",inferred
 1023,Interlude,General Malice,drum and bass,https://i.scdn.co/image/ab67616d00001e027a5c3a3b351df5d5b7a61091,"short, transitional, scene-setting moment",inferred
-1024,Stay in Your Lane - Instrumental,Jonny Faith,drum and bass,https://i.scdn.co/image/ab67616d00001e02cc05ca6a4c88173893801677,"airy, instrumental and mood-setting",inferred
 1025,Belize City,Marcus Visionary,drum and bass,https://i.scdn.co/image/ab67616d00001e025e1d979f75bd217c9d7b3055,"liquid, rolling, night-flight rush",inferred
 1026,Dutty Groove,Coco Bryce,drum and bass,https://i.scdn.co/image/ab67616d00001e028084b0c9ce9833b480d08e42,"liquid, rolling, night-flight rush",inferred
 1027,Uranus (Bridges),Brad Impact,drum and bass,https://i.scdn.co/image/ab67616d00001e0298089204f85e9d7af6f18980,"punchy, relentless, floor-shaking",inferred
-1028,The Rain,Etch,drum and bass,https://i.scdn.co/image/ab67616d00001e029a2cad3b7882af2ada9b615a,"liquid, rolling, night-flight rush",inferred
-1029,The Rain,Etch,drum and bass,https://i.scdn.co/image/ab67616d00001e02f1fc827b1abf330b864b4aaf,"liquid, rolling, night-flight rush",inferred
-1030,Slumber,Jonny Faith,drum and bass,https://i.scdn.co/image/ab67616d00001e0249233440d77bce9aefca745b,"airy, breakbeat, adrenal glide",inferred
 1031,The Crown - Dubbed Out,Daddy Freddy,drum and bass,https://i.scdn.co/image/ab67616d00001e025af63e09b7a1c60e037630d6,"punchy, relentless, floor-shaking",inferred
 1032,The Crown - Beat Street Breakdown,Daddy Freddy,drum and bass,https://i.scdn.co/image/ab67616d00001e02acbd71a3eb0724bd1e0edd37,"dark, stomping, jungle pressure",inferred
 1033,Everyman Inside - Interlude,DJ Hybrid,drum and bass,https://i.scdn.co/image/ab67616d00001e022dd4befe852dbdf0fc369550,"short, transitional, scene-setting moment",inferred
 1034,Supercalifraglistic - 1000names Remix,Coco Bryce,drum and bass,https://i.scdn.co/image/ab67616d00001e027f3beddf82a2e0523b2da471,"reworked, frenetic club edit",inferred
-1035,Firefly - Clap! Clap! Remix,Jonny Faith,drum and bass,https://i.scdn.co/image/ab67616d00001e02a4aab864f9e33ec14b4a6b50,"reworked, frenetic club edit",inferred
 1036,Feels,T-Break,drum and bass,https://i.scdn.co/image/ab67616d00001e029d1e3bdf59a481f6d890e614,"liquid, energetic, jungle-tinged momentum",inferred
 1037,Cubano Hermano,Brad Impact,drum and bass,https://i.scdn.co/image/ab67616d00001e024f2b84b1da9d731a3197e3e7,"liquid, rolling, night-flight rush",inferred
 1038,Astroflute,Brad Impact,drum and bass,https://i.scdn.co/image/ab67616d00001e02875717c9c96e5c174c614997,"dark, propulsive, adrenaline surge",inferred
@@ -1053,7 +1003,6 @@ id,title,artist,genre,image_url,vibe,confidence
 1052,Не страшно,Katya Chekhova,dubstep,https://i.scdn.co/image/ab67616d00001e02dd6498b45c48a1c0db16be05,"dark, heavy, bass-drop menace",inferred
 1053,Waves of Change,Syntheticsax,dubstep,https://i.scdn.co/image/ab67616d00001e029ca81f8505d4a7a9f41c4ef3,"icy, mechanical, half-time menace",inferred
 1054,Я не с тобой (Варда Радио Mix),Katya Chekhova,dubstep,https://i.scdn.co/image/ab67616d00001e022e333da3afa5156a25ce624e,"reworked, moody club edit",inferred
-1055,Good Mood,Syntheticsax,dubstep,https://i.scdn.co/image/ab67616d00001e020d81f24b4b7fe66687468e19,"icy, mechanical, half-time menace",inferred
 1056,Adoctrinados,Demon,dubstep,https://i.scdn.co/image/ab67616d00001e02237cda71297830893fcbe81b,"icy, mechanical, half-time menace",inferred
 1057,Prayer to the Sun - Radio Edit,Syntheticsax,dubstep,https://i.scdn.co/image/ab67616d00001e02414e84444edd256e827c8a05,"reworked, moody club edit",inferred
 1058,Selfie,Dj Yankovski,dubstep,https://i.scdn.co/image/ab67616d00001e02687ca8371d075cde741eae04,"wobbling, intense, electronic edge",inferred
@@ -1067,7 +1016,6 @@ id,title,artist,genre,image_url,vibe,confidence
 1066,Мечтая (Mezcla del Agente Smith),Katya Chekhova,dubstep,https://i.scdn.co/image/ab67616d00001e02faef6ad46d0e67c610df7cdc,"icy, mechanical, half-time menace — soft-focus reverie",inferred
 1067,Lume ++,Argo,dubstep,https://i.scdn.co/image/ab67616d00001e02ab1e80cf811d4d9ed14d3ffe,"subterranean, growling pressure",inferred
 1068,If I Could Ask,Candy Shop,dubstep,https://i.scdn.co/image/ab67616d00001e02c85df8bb3f342fddc9bcb67e,"wobbling, intense, electronic edge",inferred
-1069,Truss,Mike Goldberg,dubstep,https://i.scdn.co/image/ab67616d00001e0293e5edcb68b478d6f07fb6ef,"moody, cavernous, low-end pressure",inferred
 1070,Announce,Ax7is,dubstep,https://i.scdn.co/image/ab67616d00001e02fa4b5bb8346779fcff6431fc,"dark, heavy, bass-drop menace",inferred
 1071,По проводам (Johnny Beast Mix),Katya Chekhova,dubstep,https://i.scdn.co/image/ab67616d00001e022e333da3afa5156a25ce624e,"reworked, tense club edit",inferred
 1072,Версия 1.0 (Swanky Tunes Remix),Katya Chekhova,dubstep,https://i.scdn.co/image/ab67616d00001e022e333da3afa5156a25ce624e,"reworked, frantic club edit",inferred
@@ -1078,7 +1026,6 @@ id,title,artist,genre,image_url,vibe,confidence
 1077,Посмотри на меня (DJ KorDJ из ППК Mix),Katya Chekhova,dubstep,https://i.scdn.co/image/ab67616d00001e02faef6ad46d0e67c610df7cdc,"reworked, warped club edit",inferred
 1078,Real Life,Argo,dubstep,https://i.scdn.co/image/ab67616d00001e02ab1e80cf811d4d9ed14d3ffe,"subterranean, growling pressure",inferred
 1079,Loketur,207,dubstep,https://i.scdn.co/image/ab67616d00001e02a628bae7b4094808a6be17de,"glitchy, aggressive, warehouse energy",inferred
-1080,Announce,Ax7is,dubstep,https://i.scdn.co/image/ab67616d00001e02894eb8efe7b4737abb22a352,"dark, heavy, bass-drop menace",inferred
 1081,TÓXICA - Buscala En Nuestras Redes Vieja,MUGRE,post-punk,https://i.scdn.co/image/ab67616d00001e02594cfe86bdbd181101b4c4e3,"tense, danceable, dystopian pulse",inferred
 1082,Undir lánsömu eyra,Fan Houtens Kókó,post-punk,https://i.scdn.co/image/ab67616d00001e023fc9eb886a38106ba1fc0141,"icy, detached, art-school edge",inferred
 1083,Krab-Dekorator - Original Mix,Stepan I Meduza,post-punk,https://i.scdn.co/image/ab67616d00001e026f82836c3d34495b39f3bc85,"reworked, twitchy club edit",inferred
@@ -1111,7 +1058,6 @@ id,title,artist,genre,image_url,vibe,confidence
 1110,Ближе всего,Пожар,post-punk,https://i.scdn.co/image/ab67616d00001e02c6b8f52f5af1281416779cf1,"nervy, danceable, after-dark dread",inferred
 1111,Shoe Shine,Heart & Soul,post-punk,https://i.scdn.co/image/ab67616d00001e023be3896831d1ce2d050bf11e,"moody, angular, brooding tension",inferred
 1112,Rio das Mortes,Strasse,post-punk,https://i.scdn.co/image/ab67616d00001e02ea027a87b13481aea7f3d13e,"cold, jagged, restless drive — quiet sorrow",inferred
-1113,Waiting for the Loveboat - Single Version,The Associates,post-punk,https://i.scdn.co/image/ab67616d00001e02e866645c37b39a39948ab545,"reworked, moody club edit",inferred
 1114,Васудева - інструментал,Signals Feed The Void,post-punk,https://i.scdn.co/image/ab67616d00001e0258b6e3efeb5d9641ac136629,"tense, danceable, dystopian pulse",inferred
 1115,Вера,Кооперативништяк,post-punk,https://i.scdn.co/image/ab67616d00001e020e7cd916a64870ef5bf5369a,"nervy, danceable, after-dark dread",inferred
 1116,Fold Your Hands Child,Cobra Starship,post-punk,https://i.scdn.co/image/ab67616d00001e02ca55885681304bffc21f5d76,"twitchy, paranoid, wire-taut",inferred
@@ -1164,22 +1110,17 @@ id,title,artist,genre,image_url,vibe,confidence
 1163,In a Little While,Uncle Kracker,grunge,https://i.scdn.co/image/ab67616d00001e022ff5e58b1fcb1bce9af961c6,"heavy, weary, cathartic churn",inferred
 1164,In a Little While - Radio Edit,Uncle Kracker,grunge,https://i.scdn.co/image/ab67616d00001e02d206beeb6a9fc1caabb0845b,"reworked, heavy club edit",inferred
 1165,My Hometown,Uncle Kracker,grunge,https://i.scdn.co/image/ab67616d00001e0221008d80b196909f7dde2da8,"murky, brooding, disaffected heat — nostalgic for home",inferred
-1166,In a Little While - Radio Edit,Uncle Kracker,grunge,https://i.scdn.co/image/ab67616d00001e0279304084df3dd0425eda0910,"reworked, heavy club edit",inferred
-1167,Mountain Song,Jane's Addiction,grunge,https://i.scdn.co/image/ab67616d00001e020e8cdc16cf5fa4cf408f2fbe,"murky, brooding, disaffected heat",inferred
 1168,Through Glass - Live; Acoustic,Stone Sour,grunge,https://i.scdn.co/image/ab67616d00001e024d4f3bca6cc775ce05294fcc,"stripped-back, intimate acoustic warmth",inferred
 1169,Put Your Hands Up - Swanky Tunes Radio Edit,Matchbox Twenty,grunge,https://i.scdn.co/image/ab67616d00001e0238f85215dd1d32439cf94ee2,"reworked, angsty club edit",inferred
 1170,Hold My Hand - Don Gehman Remix,Hootie & The Blowfish,grunge,https://i.scdn.co/image/ab67616d00001e02e181dc5953faccd4a17fe2f3,"reworked, scrappy club edit",inferred
 1171,In the Meantime,Spacehog,grunge,https://i.scdn.co/image/ab67616d00001e02be830a61529098990bdb49f6,"spacey, swaggering, cosmic rock",known
-1172,In the Meantime,Spacehog,grunge,https://i.scdn.co/image/ab67616d00001e02f2741b2e1d7986667e89f56f,"loud, aching, flannel-clad melancholy",inferred
 1173,In the Blood,Better Than Ezra,grunge,https://i.scdn.co/image/ab67616d00001e0229d67694b24b4cb95b7eb202,"restless, brooding alt-rock pulse",known
-1174,Iris - Acoustic,The Goo Goo Dolls,grunge,https://i.scdn.co/image/ab67616d00001e0278cfa2ec451a6dbc636c3987,"stripped-back, intimate acoustic warmth",inferred
 1175,Die Trying - Acoustic,Art Of Dying,grunge,https://i.scdn.co/image/ab67616d00001e028ec71e4ddeb88a284d687943,"stripped-back, intimate acoustic warmth",inferred
 1176,Good,Better Than Ezra,grunge,https://i.scdn.co/image/ab67616d00001e02493a2fe17625da64f6369793,"murky, brooding, disaffected heat",inferred
 1177,Cursed Female,Porno for Pyros,grunge,https://i.scdn.co/image/ab67616d00001e02e69f2aa4a3e047c8fefe8c08,"angsty, distorted, raw catharsis",inferred
 1178,Palpitar,Dotzd,grunge,https://i.scdn.co/image/ab67616d00001e02424492dd8d9c2b2be4097e22,"murky, brooding, disaffected heat",inferred
 1179,Mercy - Acoustic,Stone Sour,grunge,https://i.scdn.co/image/ab67616d00001e02e2f57b4791306d40c02f43ce,"stripped-back, intimate acoustic warmth",inferred
 1180,Earth Plc,Dogman,grunge,https://i.scdn.co/image/ab67616d00001e023d55bd913c1c709e5bda936c,"murky, brooding, disaffected heat",inferred
-1181,In the Meantime,Spacehog,grunge,https://i.scdn.co/image/ab67616d00001e02ae4c6c1eb298b13e70c90579,"loud, aching, flannel-clad melancholy",inferred
 1182,Get Thru This,Art Of Dying,grunge,https://i.scdn.co/image/ab67616d00001e02df6fcc4a165af345349764f0,"angsty, distorted, raw catharsis",inferred
 1183,Dream Baby,Hootie & The Blowfish,grunge,https://i.scdn.co/image/ab67616d00001e02c0be9909954222fe45446ca5,"loud, aching, flannel-clad melancholy — soft-focus reverie",inferred
 1184,How You Remind Me,Nickelback,grunge,https://i.scdn.co/image/ab67616d00001e02967cea2648ccce8afd7668a2,"cathartic, radio-ready angst",known
@@ -1189,16 +1130,8 @@ id,title,artist,genre,image_url,vibe,confidence
 1188,I Hate California,Uncle Kracker,grunge,https://i.scdn.co/image/ab67616d00001e0253cec643faeb1e77cd3de303,"angsty, distorted, raw catharsis",inferred
 1189,Drowning,Hootie & The Blowfish,grunge,https://i.scdn.co/image/ab67616d00001e023d0a0d725035f0ff72ffd1ba,"angsty, distorted, raw catharsis",inferred
 1190,Crash - Acoustic Version,Cavo,grunge,https://i.scdn.co/image/ab67616d00001e028ec71e4ddeb88a284d687943,"stripped-back, intimate acoustic warmth",inferred
-1191,Iris - Acoustic,The Goo Goo Dolls,grunge,https://i.scdn.co/image/ab67616d00001e02da68dea7f183a17e669a9b5a,"stripped-back, intimate acoustic warmth",inferred
-1192,In the Meantime,Spacehog,grunge,https://i.scdn.co/image/ab67616d00001e02a534058f50fda83260e2ada4,"loud, aching, flannel-clad melancholy",inferred
-1193,My Hometown,Uncle Kracker,grunge,https://i.scdn.co/image/ab67616d00001e02e6f2956e931917a6fc726371,"murky, brooding, disaffected heat — nostalgic for home",inferred
-1194,In a Little While,Uncle Kracker,grunge,https://i.scdn.co/image/ab67616d00001e02c51faccbd352345b6741f146,"heavy, weary, cathartic churn",inferred
-1195,Hold My Hand - Don Gehman Remix,Hootie & The Blowfish,grunge,https://i.scdn.co/image/ab67616d00001e0215e24fc4f12fc48f9a31be40,"reworked, scrappy club edit",inferred
-1196,Good,Better Than Ezra,grunge,https://i.scdn.co/image/ab67616d00001e02ae0ff3e40f31287af8616cf8,"murky, brooding, disaffected heat",inferred
-1197,Hold My Hand - Don Gehman Remix,Hootie & The Blowfish,grunge,https://i.scdn.co/image/ab67616d00001e02a8bdd52286cb90a0ea7bc863,"reworked, scrappy club edit",inferred
 1198,Some Other Place,Dogman,grunge,https://i.scdn.co/image/ab67616d00001e023d55bd913c1c709e5bda936c,"murky, brooding, disaffected heat",inferred
 1199,Tierra,Las Ruinas de Santo Espiritu,grunge,https://i.scdn.co/image/ab67616d00001e02289ece40b9940f85f3651b9c,"murky, brooding, disaffected heat — nostalgic for home",inferred
-1200,In the Meantime,Spacehog,grunge,https://i.scdn.co/image/ab67616d00001e028f666ca4aa3a6d6486cb8a05,"loud, aching, flannel-clad melancholy",inferred
 1201,O Danny Boy,Keith Arneson,bluegrass,https://i.scdn.co/image/ab67616d00001e0200dce171b3af5d6b91eaa4e0,"nimble, sunlit, string-band skip",inferred
 1202,Star Spangled Banner,Norman Blake,bluegrass,https://i.scdn.co/image/ab67616d00001e020780897271ba0ad8ad754008,"lively, hollering, barn-dance run — dreamy and floating",inferred
 1203,Amazing Grace,Jana Jae,bluegrass,https://i.scdn.co/image/ab67616d00001e0203a78d5f3f8fe1301fb8dad7,"brisk, high-lonesome mountain air — hopeful and spirit-lifting",inferred
@@ -1270,7 +1203,6 @@ id,title,artist,genre,image_url,vibe,confidence
 1269,"Corazón, no llores - Remastered",Antoñita Moreno,flamenco,https://i.scdn.co/image/ab67616d00001e020dc62cf91b79293636b7f0df,"proud, wailing, sun-baked ache — heavy-hearted longing",inferred
 1270,Brisas Granadinas,Luis Maravilla,flamenco,https://i.scdn.co/image/ab67616d00001e02c771c15e5f2a285e4a3c3136,"stormy, foot-stamping passion",inferred
 1271,Signatur,Diego Del Gastor,flamenco,https://i.scdn.co/image/ab67616d00001e02bfc63fb75ae9a9eb9bb49352,"proud, aching, hand-clap intensity",inferred
-1272,Moreno Tiene Que Ser,Antoñita Moreno,flamenco,https://i.scdn.co/image/ab67616d00001e02221517dad4a5c1fbb4628043,"warm, ornate, sun-soaked romance",inferred
 1273,Despertar,Castora Herz,flamenco,https://i.scdn.co/image/ab67616d00001e0273ec61a9bf5777ecf214474b,"warm, wandering guitar reverie",inferred
 1274,Romance del Chavalillo Torero,Antoñita Moreno,flamenco,https://i.scdn.co/image/ab67616d00001e028235d451103a5aa503570c6b,"proud, wailing, sun-baked ache",inferred
 1275,Ryma,Lenacay,flamenco,https://i.scdn.co/image/ab67616d00001e02a1de75a920311f31bbf31a84,"warm, ornate, sun-soaked romance",inferred
@@ -1328,11 +1260,9 @@ id,title,artist,genre,image_url,vibe,confidence
 1327,I Really Want to Stay at Your House,Rosa Walton,world,https://i.scdn.co/image/ab67616d00001e02a91a5b301baac1f46e6f30eb,"dreamy, cinematic, bittersweet drift",known
 1328,Calm Down (with Selena Gomez),Rema,world,https://i.scdn.co/image/ab67616d00001e02a3a7f38ea2033aa501afd4cf,"bright, flirtatious, feel-good bounce",known
 1329,Me & U,Tems,world,https://i.scdn.co/image/ab67616d00001e02318f971d63a3a534ee237c9f,"tender, breezy, afro-soul longing",known
-1330,Calm Down (with Selena Gomez),Rema,world,https://i.scdn.co/image/ab67616d00001e02963265801aa5c9740ad159b7,"hypnotic, hand-drummed pulse",inferred
 1331,"Aoi, Koi, Daidaiiro No Hi",MASS OF THE FERMENTING DREGS,world,https://i.scdn.co/image/ab67616d00001e025f2ca3e8b93fd5bc304480f5,"bright, chant-lifted energy",inferred
 1332,Fire Fire,Shimza,world,https://i.scdn.co/image/ab67616d00001e0298f9abc76dbf79360cf18533,"warm, cross-cultural, danceable groove — high-intensity",inferred
 1333,Show Me Love,WizTheMc,world,https://i.scdn.co/image/ab67616d00001e02f67307349b14986af73d4fa0,"bright, chant-lifted energy — soft-hearted swoon",inferred
-1334,Show Me Love,WizTheMc,world,https://i.scdn.co/image/ab67616d00001e0212a333a62cf1a898ce04218a,"bright, chant-lifted energy — soft-hearted swoon",inferred
 1335,Show Me Love (with Tyla),WizTheMc,world,https://i.scdn.co/image/ab67616d00001e020f0047bf025ef4edab5bf6c6,"hypnotic, hand-drummed pulse — soft-hearted swoon",inferred
 1336,PUSH 2 START,Tyla,world,https://i.scdn.co/image/ab67616d00001e02f6ed33df3c9e2fdb77f08170,"cocky, thumping, dancefloor swagger",known
 1337,Mayonaka no Door~stay with me,Miki Matsubara,world,https://i.scdn.co/image/ab67616d00001e02f8c3df40fb06eb459e1d0a08,"nostalgic, city-pop midnight glow",known
@@ -1356,7 +1286,6 @@ id,title,artist,genre,image_url,vibe,confidence
 1355,Yamore,MoBlack,world,https://i.scdn.co/image/ab67616d00001e0260bca33ff77071ab1b3effce,"bright, textured, far-flung feel — soft-hearted swoon",inferred
 1356,unravel,TK from Ling tosite sigure,world,https://i.scdn.co/image/ab67616d00001e02b11c3ab5cb818192b7a61fdd,"eclectic, global, rhythm-rich energy",inferred
 1357,"Soweto (with Don Toliver, Rema & Tempoe)",Victony,world,https://i.scdn.co/image/ab67616d00001e0203188f1c8d0c310d12ac4140,"vibrant, percussive, border-crossing — raw, live-crowd energy",inferred
-1358,NIGHT DANCER,imase,world,https://i.scdn.co/image/ab67616d00001e024b062591b6a5c15652dd2bb5,"vibrant, percussive, border-crossing — carefree and buoyant",inferred
 1359,Take My Mind,WizTheMc,world,https://i.scdn.co/image/ab67616d00001e0212a333a62cf1a898ce04218a,"sun-drenched, border-crossing groove",inferred
 1360,Mi Chico,DJ Goja,world,https://i.scdn.co/image/ab67616d00001e024467c7b0d6a9bc108f20c146,"warm, cross-cultural, danceable groove",inferred
 1361,A&E (Maps Instrumental Mix),Goldfrapp,trip-hop,https://i.scdn.co/image/ab67616d00001e029d6f6efc879dec93ea6b3801,"cool, glassy, downtempo drift",known
@@ -1365,8 +1294,6 @@ id,title,artist,genre,image_url,vibe,confidence
 1364,"The Hope Suite, Pt. 1",Nostalgia 77,trip-hop,https://i.scdn.co/image/ab67616d00001e02645cddbeae1215a262b1762d,"cool, textured, late-night calm",inferred
 1365,Cherry,Nostalgia 77,trip-hop,https://i.scdn.co/image/ab67616d00001e02951466bcb64215e3cbc98693,"downtempo, smoky, atmospheric cool — reverent and soul-stirring",inferred
 1366,What's the Altitude - She Wants Revenge Remix,Cut Chemist,trip-hop,https://i.scdn.co/image/ab67616d00001e02b2fbfbf2b3975536ff71176d,"reworked, brooding club edit",inferred
-1367,What's the Altitude - She Wants Revenge Remix,Cut Chemist,trip-hop,https://i.scdn.co/image/ab67616d00001e020b0a2fc3930d31587ec039e3,"reworked, brooding club edit",inferred
-1368,"The Hope Suite, Pt. 1",Nostalgia 77,trip-hop,https://i.scdn.co/image/ab67616d00001e029d42ed52120c18fa0b8f7db2,"cool, textured, late-night calm",inferred
 1369,Changes - Mixed,Nostalgia 77,trip-hop,https://i.scdn.co/image/ab67616d00001e02f4154d329f6ba09e51dd7dab,"reworked, glassy club edit",inferred
 1370,Don't Run,Nostalgia 77,trip-hop,https://i.scdn.co/image/ab67616d00001e024db19c4cd725735801343fe3,"cool, textured, late-night calm",inferred
 1371,"Freedom - The Freedom Zombie Dance Remix, Pt. 1",Nostalgia 77,trip-hop,https://i.scdn.co/image/ab67616d00001e02898bf82a3fc8d59d815f57ca,"reworked, dark club edit",inferred

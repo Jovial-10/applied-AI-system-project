@@ -28,11 +28,22 @@ def test_recommend_ranks_closest_song_first():
     assert results[0][1] > results[1][1]
 
 
-def test_song_to_text_includes_identifying_fields():
+def test_song_to_text_excludes_title_to_avoid_literal_overlap():
+    """The blurb deliberately omits the title and artist so a literal word in
+    a title can't dominate the match (e.g. "Rain" for "rainy day coding").
+    A no-vibe song falls back to a genre descriptor — still title-free."""
     text = song_to_text(SONGS[0])
-    assert "Focus Flow" in text
-    assert "LoRoom" in text
-    assert "lofi" in text
+    assert "Focus Flow" not in text
+    assert "LoRoom" not in text
+    assert "lofi" in text  # genre descriptor still carries the semantic signal
+
+
+def test_song_to_text_is_the_vibe_line_alone_when_present():
+    """When a song has a vibe line, the blurb IS that line verbatim — no
+    title, artist, or genre descriptor wrapped around it."""
+    song = {"id": 7, "title": "Rainy Days", "artist": "Someone", "genre": "pop",
+            "vibe": "hazy, tape-warm calm for a slow afternoon"}
+    assert song_to_text(song) == "hazy, tape-warm calm for a slow afternoon"
 
 
 def test_song_to_text_prefers_vibe_line_over_genre_descriptor():

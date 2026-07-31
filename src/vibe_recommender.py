@@ -74,27 +74,27 @@ GENRE_VIBE = {
 def song_to_text(song: dict) -> str:
     """Build the descriptive blurb a song is embedded from.
 
-    Prefers the hand-written, per-song `vibe` line (the `vibe` column in
-    data/songs_vibe.csv) when present — a far richer semantic signal than the
-    per-genre descriptor, which embedded every song of a genre to nearly the
-    same text. Falls back to the genre descriptor (and optional `mood`) only
-    when a song carries no vibe.
+    Embeds each song from its hand-written `vibe` line ALONE (the `vibe`
+    column in data/songs_vibe.csv), deliberately excluding the title and
+    artist. Including the title meant a literal word in it (e.g. "Rain" in a
+    title, for a "rainy day coding" query) could dominate the match even when
+    the song's actual vibe was unrelated. The vibe line is the real semantic
+    signal, so we match on it alone.
 
-    `mood` is optional: the small audio-feature catalog has it (derived from
-    energy/valence), but the larger search-only vibe catalog doesn't, since
-    deriving mood needs the audio-features call that's largely blocked.
+    Falls back to a genre descriptor only for a row with no vibe — also
+    title-free, for the same reason. `mood` (present only on the small
+    audio-feature catalog, absent on the search-only vibe catalog) enriches
+    that fallback when available.
     """
     vibe_line = (song.get("vibe") or "").strip()
     if vibe_line:
-        return f"{song['title']} by {song['artist']}: {vibe_line}."
-    mood_part = f" a {song['mood']}" if song.get("mood") else " a"
+        return vibe_line
+    mood_part = f"{song['mood']} " if song.get("mood") else ""
     descriptor = GENRE_VIBE.get(song["genre"])
     if descriptor:
         feature, vibe = descriptor
-        genre_part = f"{song['genre']} song with {feature}, a {vibe} vibe"
-    else:
-        genre_part = f"{song['genre']} song"
-    return f"{song['title']} by {song['artist']}:{mood_part} {genre_part}."
+        return f"A {mood_part}{song['genre']} song with {feature}, a {vibe} vibe."
+    return f"A {mood_part}{song['genre']} song."
 
 
 def load_vibe_catalog(csv_path: str) -> List[dict]:

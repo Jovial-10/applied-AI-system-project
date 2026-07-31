@@ -54,20 +54,22 @@ function parseCsv(text) {
 }
 
 function songToText(song) {
-  // The catalog now carries a hand-written, per-song vibe line (see the `vibe`
-  // column in data/songs_vibe.csv) — a far richer semantic signal than the
-  // per-genre descriptor, which embedded every song of a genre to nearly the
-  // same text. Prefer it; fall back to the genre descriptor only when a row
-  // has no vibe.
+  // Embed each song from its hand-written vibe line ALONE — deliberately
+  // excluding the title and artist. Including the title meant a literal word
+  // in it (e.g. "Rain" in a title, for a "rainy day coding" query) could
+  // dominate the match even when the song's actual vibe was unrelated —
+  // "Set Fire to the Rain" (stormy heartbreak) out-ranking genuine rainy-calm
+  // songs. The vibe line is the real semantic signal, so we match on it alone.
+  // Falls back to a genre descriptor only for the rare row with no vibe (also
+  // title-free, for the same reason).
   const vibe = (song.vibe || "").trim();
   if (vibe) {
-    return `${song.title} by ${song.artist}: ${vibe}.`;
+    return vibe;
   }
   const descriptor = GENRE_VIBE[song.genre];
-  const genrePart = descriptor
-    ? `${song.genre} song with ${descriptor.feature}, a ${descriptor.vibe} vibe`
-    : `${song.genre} song`;
-  return `${song.title} by ${song.artist}: a ${genrePart}.`;
+  return descriptor
+    ? `A ${song.genre} song with ${descriptor.feature}, a ${descriptor.vibe} vibe.`
+    : `A ${song.genre} song.`;
 }
 
 async function main() {
