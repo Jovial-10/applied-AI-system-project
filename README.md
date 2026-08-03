@@ -1,69 +1,29 @@
-# 🎵 Music Recommender Simulation
+# 🎵 Symphony
 
-## Project Summary
+## Original Project (Modules 1-3)
 
-In this project you will build and explain a small music recommender system.
+The original project was **Music Recommender Simulation**, a small content-based recommender. It stored a fixed catalog of about 20 hand-written songs, each with a genre, mood, and a few audio features, and matched them against a single user's taste profile. It scored every song with a strict, hand-tuned rule (genre +2.0, mood +1.0, energy closeness, acoustic fit) and returned the top matches through a command line app.
 
-Your goal is to:
+## Summary
 
-- Represent songs and a user "taste profile" as data
-- Design a scoring rule that turns that data into recommendations
-- Evaluate what your system gets right and wrong
-- Reflect on how this mirrors real world AI recommenders
+Symphony is a music recommender system that helps users find songs that match a certain "vibe" that they may want to listen to. It can also help you find new songs that are similar to songs that you already like. Instead of typing in a genre and hoping the catalog has it, you describe the feeling you want in plain words and Symphony returns real Spotify tracks that fit it.
 
-Replace this paragraph with your own summary of what your version does.
+This matters because taste is not just a genre label. People reach for music by mood and moment, like "rainy day coding" or "hype gym workout," and Symphony is built to answer that kind of request.
 
-This version is a content-based recommender: there's only one listener and a fixed song catalog, with no play history from other users to learn from. So instead of asking "what did similar users like," it asks "how closely does this song's own attributes match this listener's stated taste," scores every song in the catalog that way, and returns the top matches.
+## What Changed From The Original
 
----
+The original used made-up songs and a strict scoring formula that only compared fixed fields like genre and mood. Symphony replaces both halves of that:
 
-## How The System Works
+- **Real data instead of fake songs.** Songs are pulled from Spotify's live API, so the catalog is around 1,380 real tracks across 37 genres.
+- **Embeddings instead of a fixed formula.** Every song's "vibe" description is embedded into a vector. Your query is embedded the same way, and songs are scored dynamically by how close their vector is to yours. This is a small RAG-style retrieval system rather than a rule that only checks exact fields.
 
-Explain your design in plain language.
+## Architecture Overview
 
-Real-world recommenders like Spotify or YouTube usually blend two ideas: collaborative filtering, which looks at what other, similar users listened to, and content-based filtering, which looks at the attributes of the content itself (genre, audio features, etc). This simulation only has a single user profile and a static catalog with no cross-user listening data, so it can only do the content-based half. It prioritizes closeness over exact matching — a song doesn't need to hit every attribute perfectly to score well, it just needs to be similar enough across enough of them, the same way a real system would rather surface something close to your taste than nothing at all.
+There are two offline steps and one live app. First, `catalog_builder.py` pulls tracks from Spotify and writes them to `data/songs_vibe.csv`, with each song given a short hand-written vibe line. Second, `build_embeddings.mjs` turns every vibe line into a vector using the `all-MiniLM-L6-v2` model and saves them to `songVectors.json`. Third, the Symphony web app runs entirely in the browser: it embeds your typed query with the same model, ranks the catalog by cosine similarity, and shows the top songs with a short explanation of why each one matched. The full diagram is in [diagrams/architecture.mmd](diagrams/architecture.mmd).
 
-Some prompts to answer:
+## Setup Instructions
 
-- What features does each `Song` use in your system
-  - For example: genre, mood, energy, tempo
-  - `genre` — categorical, compared for an exact match
-  - `mood` — categorical, compared for an exact match
-  - `energy` — continuous (0-1), compared by closeness to the user's target
-  - `acousticness` — continuous (0-1), compared against the user's acoustic preference
-  - `valence` — continuous (0-1), optional closeness bonus if the user sets a target
-  - `tempo_bpm`, `danceability` exist in the data but aren't used in scoring yet — possible future additions
-  - `id`, `title`, `artist` are identifiers, not taste signals, so they don't factor into the score
-- What information does your `UserProfile` store
-  - `favorite_genre` — matched against `Song.genre`
-  - `favorite_mood` — matched against `Song.mood`
-  - `target_energy` — compared against `Song.energy`
-  - `likes_acoustic` — a boolean, compared against `Song.acousticness`
-- How does your `Recommender` compute a score for each song
-  - Via a **Scoring Rule**: a function of one song and the user profile that produces a single match number for that song, independent of any other song in the catalog.
-- How do you choose which songs to recommend
-  - Via a **Ranking Rule**: once every song has a score, sort the whole list by score, break ties, and take the top `k`. Scoring and ranking are kept separate on purpose — scoring answers "how good is this one song for this user," ranking answers "given all those numbers, what order and cutoff do we present." Scoring without ranking is just a pile of numbers with no list to show; ranking without scoring has nothing to sort by. Keeping them separate also means each can improve independently — e.g. the ranking rule could later add diversity (avoiding 5 near-identical songs) without touching how individual songs are scored.
-
-### Algorithm Recipe
-
-The scoring rule adds up independent points per feature:
-
-- Genre match: +2.0 (exact match on `favorite_genre`)
-- Mood match: +1.0 (exact match on `favorite_mood`)
-- Energy closeness: up to +1.5, scaled by how close `energy` is to `target_energy`
-- Acoustic fit: up to +1.0, rewarding high `acousticness` if `likes_acoustic` is true, low `acousticness` otherwise
-- Valence closeness (optional): up to +0.75, same closeness scaling as energy, only applied if a `target_valence` is set
-
-Ties go to whichever song's energy is closest to `target_energy`.
-
-**Potential bias:** genre carries the most weight, so the system can over-prioritize genre and bury a great mood/energy match that happens to sit in a genre the user didn't name as a favorite.
-
-
----
-
-## Getting Started
-
-### Setup
+**Python side (catalog and tests):**
 
 1. Create a virtual environment (optional but recommended):
 
@@ -71,151 +31,91 @@ Ties go to whichever song's energy is closest to `target_energy`.
    python -m venv .venv
    source .venv/bin/activate      # Mac or Linux
    .venv\Scripts\activate         # Windows
+   ```
 
-2. Install dependencies
+2. Install dependencies:
 
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Run the app:
+3. Run the tests:
 
-```bash
-python -m src.main
-```
+   ```bash
+   pytest
+   ```
 
-### Running Tests
+**Web app (Symphony):**
 
-Run the starter tests with:
+1. Move into the web folder and install:
 
-```bash
-pytest
-```
+   ```bash
+   cd web
+   npm install
+   ```
 
-You can add more tests in `tests/test_recommender.py`.
+2. Start the app:
 
----
+   ```bash
+   npm run dev
+   ```
 
-## Sample Recommendation Output
+3. Open the local URL it prints and type a vibe into the search bar.
 
-Output of `python -m src.main` for the default `pop`/`happy` profile:
+To rebuild the song vectors after changing the catalog, run `npm run build:embeddings` from the `web` folder.
 
-```
-Top recommendations for genre=pop, mood=happy, energy=0.8:
+## Sample Interactions
 
-1. Sunrise City - Score: 5.29
-   Reasons: genre match (+2.00), mood match (+1.00), energy similarity (+1.47), non-acoustic fit (+0.82)
+These are real outputs from the vibe recommender on the current catalog (top 3 shown):
 
-2. Gym Hero - Score: 4.25
-   Reasons: genre match (+2.00), energy similarity (+1.30), non-acoustic fit (+0.95)
-
-3. Rooftop Lights - Score: 3.09
-   Reasons: mood match (+1.00), energy similarity (+1.44), non-acoustic fit (+0.65)
-
-4. Concrete Bloom - Score: 2.38
-   Reasons: energy similarity (+1.50), non-acoustic fit (+0.88)
-
-5. Neon Bazaar - Score: 2.30
-   Reasons: energy similarity (+1.38), non-acoustic fit (+0.92)
-```
-
-**Screenshot or video** *(optional)*: <!-- Insert a screenshot or demo video link here -->
-
----
-
-## Experiments
-
-To stress-test the Algorithm Recipe, I ran three "edge case" profiles, each one pairing a favorite genre with attributes that genre's real songs in the catalog don't actually have — so the genre-match bonus and the closeness terms pull the score in opposite directions.
-
-**Slow acoustic rock** (`genre=rock, mood=relaxed, energy=0.25, likes_acoustic=True`): the catalog's only rock song ("Storm Runner") is intense and non-acoustic, the opposite of this profile. Result: a relaxed, acoustic jazz song ("Coffee Shop Stories") outranks the only rock song entirely — genre alone wasn't enough to win.
+**Query: "rainy day coding session"**
 
 ```
-=== Slow acoustic rock (genre=rock, mood=relaxed, energy=0.25, likes_acoustic=True) ===
-
-1. Coffee Shop Stories - Score: 3.21
-   Reasons: mood match (+1.00), energy similarity (+1.32), acoustic fit (+0.89)
-
-2. Storm Runner - Score: 2.61
-   Reasons: genre match (+2.00), energy similarity (+0.51), acoustic fit (+0.10)
-
-3. Glass Cathedral Sketch - Score: 2.47
-   Reasons: energy similarity (+1.50), acoustic fit (+0.97)
-
-4. Spacewalk Thoughts - Score: 2.38
-   Reasons: energy similarity (+1.46), acoustic fit (+0.92)
-
-5. Paper Boats - Score: 2.32
-   Reasons: energy similarity (+1.42), acoustic fit (+0.90)
+1. TRUSTFALL - Guitar Instrumental (lofi)   sim 0.45
+   vibe: rainy-window, instrumental and mood-setting
+2. Fullautostop - IAMPAUL (lofi)            sim 0.42
+   vibe: rainy-window, tape-warm calm
+3. Entity INM TNE - Marc Behrens (lofi)     sim 0.42
+   vibe: rainy-window, tape-warm calm
 ```
 
-**Low-energy pop** (`genre=pop, mood=chill, energy=0.15, likes_acoustic=True`): both pop songs in the catalog are high-energy and non-acoustic. Result: three chill/ambient/lofi songs outrank both real pop songs, which still cling to 4th and 5th place purely on the genre bonus.
+**Query: "hype gym workout pump"**
 
 ```
-=== Low-energy pop (genre=pop, mood=chill, energy=0.15, likes_acoustic=True) ===
-
-1. Spacewalk Thoughts - Score: 3.22
-   Reasons: mood match (+1.00), energy similarity (+1.30), acoustic fit (+0.92)
-
-2. Library Rain - Score: 3.06
-   Reasons: mood match (+1.00), energy similarity (+1.20), acoustic fit (+0.86)
-
-3. Midnight Coding - Score: 2.80
-   Reasons: mood match (+1.00), energy similarity (+1.09), acoustic fit (+0.71)
-
-4. Sunrise City - Score: 2.68
-   Reasons: genre match (+2.00), energy similarity (+0.50), acoustic fit (+0.18)
-
-5. Gym Hero - Score: 2.38
-   Reasons: genre match (+2.00), energy similarity (+0.33)
+1. Bling-Bang-Bang-Born - Creepy Nuts (world)   sim 0.44
+   vibe: hyperactive, anime-adrenaline hype
+2. Thunderstruck - AC/DC (rock)                 sim 0.43
+   vibe: electric, swaggering stadium adrenaline
+3. Overdrive - Air Diver (trance)               sim 0.42
+   vibe: pulsing, uplifting, hands-up rush
 ```
 
-**Deep intense country** (`genre=country, mood=intense, energy=0.85, likes_acoustic=True`): this profile is internally contradictory — in this dataset, high energy and high acousticness are inversely correlated (the loudest songs are all electric), so no song can satisfy both halves at once. Result: the sole country song ("Dust Road Ballad") still wins on genre alone despite a mood mismatch, and the runners-up are unrelated high-energy songs that at least partly match the mood.
+**Query: "late night heartbreak drive"**
 
 ```
-=== Deep intense country (genre=country, mood=intense, energy=0.85, likes_acoustic=True) ===
-
-1. Dust Road Ballad - Score: 3.55
-   Reasons: genre match (+2.00), energy similarity (+0.90), acoustic fit (+0.65)
-
-2. Storm Runner - Score: 2.51
-   Reasons: mood match (+1.00), energy similarity (+1.41), acoustic fit (+0.10)
-
-3. Gym Hero - Score: 2.43
-   Reasons: mood match (+1.00), energy similarity (+1.38)
-
-4. Tidewalker - Score: 1.75
-   Reasons: energy similarity (+1.50), acoustic fit (+0.25)
-
-5. Rooftop Lights - Score: 1.71
-   Reasons: energy similarity (+1.36), acoustic fit (+0.35)
+1. stupid song - Olivia Rodrigo (pop)               sim 0.56
+   vibe: breezy heartbreak playing it cool
+2. Apocalypse - Cigarettes After Sex (indie pop)    sim 0.51
+   vibe: hazy, aching, slow-motion heartbreak
+3. I Had Some Help - Post Malone (pop)              sim 0.50
+   vibe: rowdy, hard-drinking heartbreak singalong
 ```
 
-**Takeaway:** the genre bonus (+2.0) is large enough to guarantee the catalog's only song in a favorite genre always lands in the top 5, even when every other attribute is a poor match — but it's not always large enough to make that song rank #1 if a different genre fits the closeness terms much better.
+## Design Decisions
 
----
+While there were a lot of design changes, I ultimately chose to design the program this way to ensure that the songs I recommend to users represent a wide variety of musical genres and that the actual "vibe" that users want songs for are carefully selected and recommended.
 
-## Limitations and Risks
+A few specific choices supported that:
 
-Summarize some limitations of your recommender.
+- **Match on the vibe line alone.** Songs are embedded from their vibe description, not their title. Early on, a literal word in a title (like "Rain") would win a match even when the song's real feeling was unrelated. Dropping the title from the embedding fixed most of that.
+- **Two catalogs.** Spotify's audio-features endpoint stopped responding after about 17 tracks, so the vibe catalog only uses Search, which is not blocked. That trade let the catalog grow to over a thousand songs instead of staying tiny.
+- **No vector database.** At this scale a cosine similarity over an in-memory list is enough, so I kept it simple and ran everything in the browser with no server.
+- **Confidence weighting.** Vibe lines marked "inferred" are nudged down slightly so a verified song wins a close call.
 
-Examples:
+## Testing Summary
 
-- It only works on a tiny catalog
-- It does not understand lyrics or language
-- It might over favor one genre or mood
-
-Sometimes the "vibe" described by the user will have exact words matched in the songs and the recommender would recommend you songs because it matched the title of the song, not because of the actual similarity in vibe.
-
----
+Testing is a pytest suite with deterministic fake embeddings, so most tests run without downloading a model or hitting the network. What worked well was the ranking logic and the Spotify cache, which reads from disk with no live call. What did not fully work was the literal-overlap problem. Embedding the vibe line alone fixed most cases, but one regression test against the real model shows that a strong emotional word shared between a query and a title can still occasionally win. What I learned is that a clean data choice, like dropping titles from the text being embedded, can fix a bug more reliably than adding more scoring rules on top.
 
 ## Reflection
 
-Read and complete `model_card.md`:
-
-[**Model Card**](model_card.md)
-
-What I learned:
-
-- **How recommenders turn data into predictions:** Recommenders turn data into predictions by comparing what a user says they like (genre, mood, energy, etc.) against each song's own attributes and adding up points for how closely they match. Even a simple, rule-based system like this one can feel like a real recommendation, because the scoring logic is what decides what matters most. Giving genre and mood more weight made the picks feel a lot closer to what a real listener would actually want.
-- **Where bias or unfairness could show up:** Bias shows up here because the dataset is small and uneven — some genres have a few songs while most only have one, so fans of those genres always get the same limited pick no matter how well it actually fits. This showed me that real systems will always deal with a huge range of unique user profiles, so the dataset itself needs to represent that same diversity, not just the scoring logic.
-
+This project taught me that the data matters as much as the algorithm. Moving from a strict formula to embeddings did not just add features, it changed the whole problem from "does this song match these exact fields" to "does this song feel like what the user asked for." It also showed me that small, careful choices, like what text you embed, often solve problems that more complex logic cannot.

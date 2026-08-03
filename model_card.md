@@ -1,9 +1,8 @@
-# 🎧 Model Card: Music Recommender Simulation
+# 🎧 Model Card: Symphony
 
 ## 1. Model Name  
 
-Give your model a short, descriptive name.  
-Example: **Symphony**  
+**Symphony**
 
 ---
 
@@ -17,7 +16,7 @@ Prompts:
 - What assumptions does it make about the user  
 - Is this for real users or classroom exploration  
 
-The recommender is a system designed to recommend users songs that they would like according to their distinct musical preferences. This isn't for real users because it was trained on a very small dataset and does not have enough data variety to support real recommendations.
+Symphony recommends songs that match a free-text "vibe" the user types, like "rainy day coding" or "hype gym workout." It can also help a user find new songs that feel similar to ones they already like. It assumes the user can describe the feeling they want in a few words. This is for classroom exploration, not real users, since the catalog is a curated slice of Spotify and the vibe descriptions are hand-written rather than learned from real listening data.
 
 ---
 
@@ -34,7 +33,9 @@ Prompts:
 
 Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
-To score songs, features such as genre, energy, mood, and if the user likes acoustic are used with different weights to match songs in a datset to target songs that a user enjoys. Changes have been made from the starter logic so that the new scoring logic has more depth and weights for features that I think are more important like genre and mood. 
+Every song has a short vibe line I wrote that describes how it feels. That sentence gets turned into a list of numbers, called a vector, that captures its meaning. When a user types a query, that gets turned into numbers the same way. The system then compares the query's numbers to every song's numbers and returns the songs whose numbers are closest, which are the ones that feel the most like what the user asked for.
+
+This is a big change from the starter logic. The original added up points for exact matches on fixed fields like genre, mood, and energy. Now it matches by meaning instead, so a query does not have to name a genre to get good results. One other important change is that each song is matched on its vibe line alone, not its title, so a song can't win a query just because a word in its name happens to match.
 
 ---
 
@@ -49,7 +50,7 @@ Prompts:
 - Did you add or remove data  
 - Are there parts of musical taste missing in the dataset  
 
-The original datset was very small and only started with 10 songs. Since then, 10 more have been added and the songs represent a variety of different genres and moods. Music is very diverse so the small dataset cannot accurately represent musical taste.
+The catalog now has around 1,380 songs pulled from Spotify's live search, spread across 37 genres. Each song has a hand-written vibe line describing its feeling, and each one is marked either "known" (verified) or "inferred" (a vibe line I guessed at). Most of the lines are inferred, with a few hundred verified as known. This replaced the original tiny catalog of about 20 hand-made songs. Even at this size, parts of musical taste are still missing: the model does not read lyrics, it leans English, and it only covers the genres I seeded from Spotify.
 
 ---
 
@@ -63,17 +64,27 @@ Prompts:
 - Any patterns you think your scoring captures correctly  
 - Cases where the recommendations matched your intuition  
 
-The system seemed to work well for songs that had easier, more common genres. I think it picks up on genre and mood patterns very well because of their higher weight. 
+The system works well for clear mood or feeling queries, like "rainy day coding" or "late night heartbreak drive," where the vibe words are strong and specific. It captures feeling across genres, so it can return the same mood from a few different genres instead of locking onto one. It matched my intuition when it pulled calm lofi tracks for a study query and high-energy tracks for a workout query, without me having to name a genre at all.
 
 ---
 
 ## 6. Limitations and Bias 
 
-One clear weakness is in how the energy-closeness term treats the whole 0-1 scale as evenly populated, when the catalog's songs actually cluster into a low-energy "chill" group (lofi, ambient, classical, roughly 0.25-0.45) and a high-energy "loud" group (pop, rock, edm, metal, punk, roughly 0.75-0.97), with only two songs sitting in the 0.55-0.70 middle. Any user whose target energy falls in that gap is quietly underserved — their best possible song still carries a real energy penalty, not because the scoring math is wrong, but because the data has almost nothing to offer there. This gets worse combined with the acoustic-fit term, since in this catalog loud songs are almost never acoustic, so a preference for both high energy and acoustic sound (like the "Deep intense country" test) can never score well on both axes at once. A second, related bias comes from genre imbalance: lofi (3 songs) and pop (2 songs) dominate the 20-song catalog, while the other 17 genres each have exactly one representative, so fans of any of those genres always get the same single genre-matched option regardless of fit, while lofi/pop fans get real variety to pick from. Neither of these is a bug in the code — they're filter bubbles baked into the size and shape of the dataset that the scoring rule has no way to detect or flag.
+**Limitations.** The catalog is limited. It only covers the genres I seeded from Spotify search, so anything outside those buckets is missing. It also leans English and the model matches on a short written vibe line, not the actual lyrics or audio, so it never really "hears" the song. It only knows a song by the sentence I wrote to describe it. On top of that, some songs are marked "inferred," which means I guessed at their vibe line instead of verifying it, so those matches are less trustworthy by design.
+
+**Biases.** Genre coverage is uneven. Some genres have close to 40 songs and others have far fewer, so a query that fits a thin genre has fewer good options to pull from. The catalog also comes from Spotify search, which surfaces more popular tracks, so the recommender leans toward well-known music and can miss smaller artists. Finally, the embedding model was trained on general text, so it can latch onto surface words instead of the real feeling, which is where the name-versus-vibe problem came from.
+
+### Could this be misused, and how would I prevent that?
+
+The misuse risk is low since the system only recommends songs from a fixed catalog and does not collect any user data. The main thing to watch is that the vibe lines are hand-written, so someone could bias what gets recommended by writing slanted descriptions, like always describing one artist in glowing terms so those songs win more queries. To prevent that I keep the vibe lines factual and mark unverified ones as "inferred" so they get down-weighted. If this were ever used for real, I would also keep the recommendations transparent by showing why each song matched, so a user can tell it is matching on vibe and not quietly pushing something.
 
 ---
 
 ## 7. Evaluation  
+
+**What surprised me while testing reliability:** the recommender kept making the same mistake over and over, matching songs by their title instead of their actual vibe, like a "party" song winning a "party" query just because the word was in its name. What surprised me more was that the AI would say it had fixed the problem when it actually had not. That taught me to test the output myself instead of trusting that a change worked just because it was described as a fix.
+
+> The evaluation below describes the earlier structured scoring version of the project, kept here as a record of that work.
 
 **Profiles tested:** the starter pop/happy profile, plus three "edge case" profiles built to conflict with the catalog: Slow acoustic rock (rock genre, but low-energy and acoustic), Low-energy pop (pop genre, but calm and acoustic), and Deep intense country (country genre, but loud and acoustic at the same time — a combination that barely exists in the data). I also re-ran all four with the mood-match term temporarily disabled, to see how much of each ranking depended on mood alone.
 
@@ -100,7 +111,7 @@ Prompts:
 - Improving diversity among the top results  
 - Handling more complex user tastes  
 
-Add a lot more data so that the recommender can train and handle much more unique user profiles. The recommendations could also be more personalized and unique. 
+Add even more data and more genres so the recommender can handle a wider range of tastes. Verify the "inferred" vibe lines so more of the catalog is trustworthy. Add diversity to the top results so they are not all the same genre or artist. Improve the explanations so it is even clearer why each song matched. Finally, handle more complex queries, like ones that describe two feelings at once or a very specific moment.
 
 
 ---
@@ -115,4 +126,12 @@ Prompts:
 - Something unexpected or interesting you discovered  
 - How this changed the way you think about music recommendation apps  
 
-Reflecting on this experience, I learned a lot more about the logic behind recommendation systems. My biggest learning moment during this project was the importance of having a diverse dataset. Systems like these will always have a lot of users which means a lot of unique musical preferences. Edge case user profiles will show up a lot so it is important to have a dataset that represents a wide variety of people. Claude Code helped me brainstorm, learn new concepts, and program effeciently so that my ideas became tangible code. Simple algorithms can still feel like recommendations because the logic behind it is what matters. Making the score weight of more important aspects will help recommend more accurately. If the project was extended, I was try getting a much larger datset, so that I could make a more comprehensive and representative recommender with more thorough scoring logic.
+Reflecting on this experience, I learned a lot more about the logic behind recommendation systems. My biggest learning moment during this project was the importance of having a diverse dataset. Systems like these will always have a lot of users which means a lot of unique musical preferences. Edge case user profiles will show up a lot so it is important to have a dataset that represents a wide variety of people. Simple algorithms can still feel like recommendations because the logic behind it is what matters, but I also saw that the data matters just as much as the algorithm.
+
+**Collaborating with AI.** I used AI throughout the project. I had it brainstorm with me and ask me questions so I could think through my own choices, write code efficiently, and help me write tests and design the website. It sped up the work but I still had to check what it produced.
+
+**One helpful suggestion:** switching from the simple scoring logic to using an embedder that turns each song into a vector and matches by meaning instead of exact fields. That was the change that made the whole "vibe" idea actually work, and it is the core of the current system.
+
+**One flawed suggestion:** at one point the AI had the recommender match songs by words in their title instead of their real vibe, so a song could win a query just because a word matched its name. I had to correct that by embedding the vibe line alone instead of the title. It was a good reminder that AI suggestions still need testing, since it also claimed to have fixed this before it actually had.
+
+If the project was extended, I would try getting a much larger dataset, so that I could make a more comprehensive and representative recommender.
