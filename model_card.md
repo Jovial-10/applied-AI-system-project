@@ -8,30 +8,11 @@
 
 ## 2. Intended Use  
 
-Describe what your recommender is designed to do and who it is for. 
-
-Prompts:  
-
-- What kind of recommendations does it generate  
-- What assumptions does it make about the user  
-- Is this for real users or classroom exploration  
-
 Symphony recommends songs that match a free-text "vibe" the user types, like "rainy day coding" or "hype gym workout." It can also help a user find new songs that feel similar to ones they already like. It assumes the user can describe the feeling they want in a few words. This is for classroom exploration, not real users, since the catalog is a curated slice of Spotify and the vibe descriptions are hand-written rather than learned from real listening data.
 
 ---
 
 ## 3. How the Model Works  
-
-Explain your scoring approach in simple language.  
-
-Prompts:  
-
-- What features of each song are used (genre, energy, mood, etc.)  
-- What user preferences are considered  
-- How does the model turn those into a score  
-- What changes did you make from the starter logic  
-
-Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
 Every song has a short vibe line I wrote that describes how it feels. That sentence gets turned into a list of numbers, called a vector, that captures its meaning. When a user types a query, that gets turned into numbers the same way. The system then compares the query's numbers to every song's numbers and returns the songs whose numbers are closest, which are the ones that feel the most like what the user asked for.
 
@@ -41,28 +22,11 @@ This is a big change from the starter logic. The original added up points for ex
 
 ## 4. Data  
 
-Describe the dataset the model uses.  
-
-Prompts:  
-
-- How many songs are in the catalog  
-- What genres or moods are represented  
-- Did you add or remove data  
-- Are there parts of musical taste missing in the dataset  
-
 The catalog now has around 1,380 songs pulled from Spotify's live search, spread across 37 genres. Each song has a hand-written vibe line describing its feeling, and each one is marked either "known" (verified) or "inferred" (a vibe line I guessed at). Most of the lines are inferred, with a few hundred verified as known. This replaced the original tiny catalog of about 20 hand-made songs. Even at this size, parts of musical taste are still missing: the model does not read lyrics, it leans English, and it only covers the genres I seeded from Spotify.
 
 ---
 
 ## 5. Strengths  
-
-Where does your system seem to work well  
-
-Prompts:  
-
-- User types for which it gives reasonable results  
-- Any patterns you think your scoring captures correctly  
-- Cases where the recommendations matched your intuition  
 
 The system works well for clear mood or feeling queries, like "rainy day coding" or "late night heartbreak drive," where the vibe words are strong and specific. It captures feeling across genres, so it can return the same mood from a few different genres instead of locking onto one. It matched my intuition when it pulled calm lofi tracks for a study query and high-energy tracks for a workout query, without me having to name a genre at all.
 
@@ -102,29 +66,12 @@ Picture someone who says they want "Happy Pop." The song "Gym Hero" keeps showin
 
 ## 8. Future Work  
 
-Ideas for how you would improve the model next.  
-
-Prompts:  
-
-- Additional features or preferences  
-- Better ways to explain recommendations  
-- Improving diversity among the top results  
-- Handling more complex user tastes  
-
-Add even more data and more genres so the recommender can handle a wider range of tastes. Verify the "inferred" vibe lines so more of the catalog is trustworthy. Add diversity to the top results so they are not all the same genre or artist. Improve the explanations so it is even clearer why each song matched. Finally, handle more complex queries, like ones that describe two feelings at once or a very specific moment.
+In the future, I want to add even more data and more genres so the recommender can handle a wider range of tastes. Verify the "inferred" vibe lines so more of the catalog is trustworthy. Add diversity to the top results so they are not all the same genre or artist. Improve the explanations so it is even clearer why each song matched. Finally, handle more complex queries, like ones that describe two feelings at once or a very specific moment.
 
 
 ---
 
 ## 9. Personal Reflection  
-
-A few sentences about your experience.  
-
-Prompts:  
-
-- What you learned about recommender systems  
-- Something unexpected or interesting you discovered  
-- How this changed the way you think about music recommendation apps  
 
 Reflecting on this experience, I learned a lot more about the logic behind recommendation systems. My biggest learning moment during this project was the importance of having a diverse dataset. Systems like these will always have a lot of users which means a lot of unique musical preferences. Edge case user profiles will show up a lot so it is important to have a dataset that represents a wide variety of people. Simple algorithms can still feel like recommendations because the logic behind it is what matters, but I also saw that the data matters just as much as the algorithm.
 
