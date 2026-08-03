@@ -13,6 +13,19 @@ export default function RecommendationsGrid({ query, results }) {
         </div>
       </div>
 
+      {results.length > 0 && (
+        <div className="sym-results__top3">
+          <span className="sym-results__top3-label">Your top 3 songs</span>
+          <ol className="sym-results__top3-list">
+            {results.slice(0, 3).map(({ song }, index) => (
+              <li key={song.id} className="sym-results__top3-item">
+                <span className="sym-results__top3-rank">{index + 1}.</span> {song.title}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
       <div className="sym-results__grid">
         {results.map(({ song, score }, index) => (
           <TrackCard key={song.id} song={song} score={score} index={index} />

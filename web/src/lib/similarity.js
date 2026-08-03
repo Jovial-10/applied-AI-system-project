@@ -7,9 +7,18 @@ function dot(a, b) {
   return sum;
 }
 
+// Songs whose vibe line was inferred (rather than verified — see the
+// `confidence` column in data/songs_vibe.csv) get their similarity nudged
+// down so that, on close matches, a verified song ranks ahead of an inferred
+// one. Small enough not to bury a clearly-better inferred match.
+const INFERRED_WEIGHT = 0.9;
+
 export function rankSongs(queryVector, songs, k = 6) {
   return songs
-    .map((song) => ({ song, score: dot(queryVector, song.vector) }))
+    .map((song) => {
+      const weight = song.confidence === "inferred" ? INFERRED_WEIGHT : 1;
+      return { song, score: dot(queryVector, song.vector) * weight };
+    })
     .sort((a, b) => b.score - a.score)
     .slice(0, k);
 }

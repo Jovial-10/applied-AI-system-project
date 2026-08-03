@@ -1,0 +1,49 @@
+flowchart LR
+    subgraph Catalog["Catalog Sourcing (offline)"]
+        SC["SpotifyClient\n(cached Spotify Web API calls)"]
+        CB["catalog_builder.py\nbuilds songs_vibe.csv"]
+        CSV["data/songs_vibe.csv\n(hand-written vibe lines\n+ confidence: known/inferred)"]
+        SC --> CB --> CSV
+    end
+
+    subgraph Build["Embedding Build (offline, Node)"]
+        BE["build_embeddings.mjs\nembeds each song's vibe line\nwith all-MiniLM-L6-v2"]
+        VEC["songVectors.json\n(precomputed L2-normalized\ncatalog vectors)"]
+        BE --> VEC
+    end
+
+    subgraph Browser["Symphony Web App (runs entirely in browser)"]
+        UI["React UI\nVibeSearchBar / RecommendationsGrid"]
+        EMB["embed.js\nall-MiniLM-L6-v2 via\n@xenova/transformers (WASM)"]
+        SIM["similarity.js\ncosine ranking +\ninferred down-weighting"]
+        EXP["explain.js\ngenre/vibe explanations"]
+        UI -->|"free-text vibe query"| EMB
+        EMB -->|"query vector"| SIM
+        SIM --> EXP --> UI
+    end
+
+    subgraph Python["Vibe CLI (Python)"]
+        REC["vibe_recommender.py\ncosine ranking of query vs.\ncatalog embeddings + inferred down-weighting"]
+    end
+
+    subgraph Deploy["Deployment"]
+        NET["Netlify\n(netlify.toml: build web/, publish dist/)"]
+    end
+
+    subgraph Checks["Human & Automated Checks"]
+        TESTS["pytest suite\ntest_catalog_builder.py\ntest_vibe_recommender.py"]
+        CARD["model_card.md\nedge-case eval +\ndocumented biases/limitations"]
+        HUMAN["User reviews ranked list\n& explanation before trusting it"]
+    end
+
+    CSV -->|"catalog rows"| BE
+    CSV -->|"catalog rows (query time)"| REC
+    VEC -->|"bundled into app"| SIM
+
+    Browser -->|"static build"| NET
+    UI -->|"ranked songs + explanations"| HUMAN
+    REC -->|"ranked songs + explanations"| HUMAN
+
+    TESTS -.->|"verifies retrieval & ranking logic"| REC
+    TESTS -.->|"verifies catalog & vibe logic"| CB
+    CARD -.->|"documents known failure modes"| HUMAN

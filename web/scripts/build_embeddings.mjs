@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { parse } from "node:path";
 import { pipeline } from "@xenova/transformers";
+import { GENRE_VIBE } from "../src/lib/explain.js";
 
 const CSV_PATH = new URL("../../data/songs_vibe.csv", import.meta.url);
 const OUTPUT_PATH = new URL("../src/data/songVectors.json", import.meta.url);
@@ -53,7 +54,22 @@ function parseCsv(text) {
 }
 
 function songToText(song) {
-  return `${song.title} by ${song.artist}: a ${song.genre} song`;
+  // Embed each song from its hand-written vibe line ALONE — deliberately
+  // excluding the title and artist. Including the title meant a literal word
+  // in it (e.g. "Rain" in a title, for a "rainy day coding" query) could
+  // dominate the match even when the song's actual vibe was unrelated —
+  // "Set Fire to the Rain" (stormy heartbreak) out-ranking genuine rainy-calm
+  // songs. The vibe line is the real semantic signal, so we match on it alone.
+  // Falls back to a genre descriptor only for the rare row with no vibe (also
+  // title-free, for the same reason).
+  const vibe = (song.vibe || "").trim();
+  if (vibe) {
+    return vibe;
+  }
+  const descriptor = GENRE_VIBE[song.genre];
+  return descriptor
+    ? `A ${song.genre} song with ${descriptor.feature}, a ${descriptor.vibe} vibe.`
+    : `A ${song.genre} song.`;
 }
 
 async function main() {
@@ -72,6 +88,10 @@ async function main() {
       title: song.title,
       artist: song.artist,
       genre: song.genre,
+      image: song.image_url || null,
+      vibe: (song.vibe || "").trim() || null,
+      // "known" (verified) vs "inferred"; the ranker down-weights inferred rows.
+      confidence: (song.confidence || "").trim() || null,
       vector: Array.from(output.data),
     });
     process.stdout.write(`\rEmbedded ${results.length}/${songs.length}`);
